@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
 X-DocPath=kpovmodeler/index.html
-Exec=kpovmodeler -caption "%c" %f
+Exec=kpovmodeler %f
 Icon=kpovmodeler
 MimeType=application/x-kpovmodeler;
 Name=KPovModeler
