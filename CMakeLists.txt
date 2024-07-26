@@ -38,8 +38,6 @@ include(GenerateExportHeader)
 include(FeatureSummary)
 
 add_subdirectory( icons )
-#add_subdirectory( examples )
-#add_subdirectory( library )
 
 add_feature_info(FREETYPE_FOUND "libfreetype" "FreeType lib is needed to build the kpovmodeler project"
 "http://freetype.sf.net" FALSE "" "")
@@ -347,10 +345,16 @@ install(TARGETS kpovmodeler ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### install files ###############
 
-install( PROGRAMS kpovmodeler.desktop  DESTINATION  ${XDG_APPS_INSTALL_DIR} )
+install( FILES kpovmodeler.desktop  DESTINATION  ${XDG_APPS_INSTALL_DIR} )
 install( FILES kpovmodelerpart.desktop  DESTINATION  ${SERVICES_INSTALL_DIR} )
-install( FILES kpovmodelershell.rc kpovmodelerui.rc kpovmodelerbrowser.rc
-               povraydocmap.xml baseinsertrules.xml questionmark.png  DESTINATION  ${DATA_INSTALL_DIR}/kpovmodeler )
+install( FILES
+            kpovmodelershell.rc
+            kpovmodelerui.rc
+            kpovmodelerbrowser.rc
+            povraydocmap.xml
+            baseinsertrules.xml
+            questionmark.png
+         DESTINATION  ${DATA_INSTALL_DIR}/kpovmodeler )
 
 install( FILES org.kde.kpovmodeler.xml DESTINATION ${DBUS_INTERFACES_INSTALL_DIR} )
 
@@ -358,14 +362,13 @@ install( DIRECTORY examples/ DESTINATION ${DATA_INSTALL_DIR}/kpovmodeler/example
 install( DIRECTORY library/ DESTINATION ${DATA_INSTALL_DIR}/kpovmodeler/library )
 ecm_install_icons(
     ICONS
-        hi16-apps-kpovmodeler.png
-        hi22-apps-kpovmodeler.png
-        hi32-apps-kpovmodeler.png
-        hi48-apps-kpovmodeler.png
-        ox16-mimetypes-kpovmodeler.png
-        ox32-mimetypes-kpovmodeler.png
-        ox48-mimetypes-kpovmodeler.png
-        questionmark.png
+        16-apps-kpovmodeler.png
+        22-apps-kpovmodeler.png
+        32-apps-kpovmodeler.png
+        48-apps-kpovmodeler.png
+        16-mimetypes-kpovmodeler.png
+        32-mimetypes-kpovmodeler.png
+        48-mimetypes-kpovmodeler.png
     DESTINATION ${KDE_INSTALL_ICONDIR}
     THEME hicolor
 )
