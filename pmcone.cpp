@@ -414,11 +414,15 @@ void PMCone::controlPointsChanged( PMControlPointList & list )
    }
 
    if( radiusChanged )
+   {
 		for( it = list.begin(); it != list.end(); ++it )
+        {
 			if( ( *it )->id() == PMRadius1ID )
 				( ( PMDistanceControlPoint *) *it )->setDistance( m_radius1 );
 			else if( ( *it )->id() == PMRadius2ID )
 				( ( PMDistanceControlPoint *) *it )->setDistance( m_radius2 );
+        }
+   }
 }
 
 void PMCone::setSteps( int s )

@@ -89,7 +89,7 @@ bool PMPovrayRenderWidget::render( const QByteArray& scene,
    }
 
    dstr.resetStatus();
-   dstr.unsetDevice();
+   dstr.setDevice(nullptr);
    dstr.setDevice( m_pTempFile );
    dstr.writeRawData( scene.data(), scene.size() );
    m_pTempFile->flush();

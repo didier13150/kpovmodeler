@@ -45,17 +45,17 @@ public:
    {
       m_index = 0;
    }
-   virtual int dimensions() const { return 1; }
-   virtual void setIndex( int /*dimension*/, int index )
+   virtual int dimensions() const override { return 1; }
+   virtual void setIndex( int /*dimension*/, int index ) override
    {
       m_index = index;
    }
-   virtual int size( PMObject* object, int /*dimension*/ ) const
+   virtual int size( PMObject* object, int /*dimension*/ ) const override
    {
       return c_polynomSize[ ( ( PMPolynom* ) object )->polynomOrder() ];
    }
 protected:
-   virtual bool setProtected( PMObject* obj, const PMVariant& var )
+   virtual bool setProtected( PMObject* obj, const PMVariant& var ) override
    {
       PMPolynom* p = ( PMPolynom* ) obj;
       PMVector v = p->coefficients();
@@ -64,7 +64,7 @@ protected:
 
       return true;
    }
-   virtual PMVariant getProtected( const PMObject* obj )
+   virtual PMVariant getProtected( const PMObject* obj ) override
    {
       PMPolynom* p = ( PMPolynom* ) obj;
       return PMVariant( p->coefficients()[m_index] );

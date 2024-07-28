@@ -47,26 +47,26 @@ public:
    {
       m_index = 0;
    }
-   virtual int dimensions() const { return 1; }
-   virtual void setIndex( int /*dimension*/, int index )
+   virtual int dimensions() const override { return 1; }
+   virtual void setIndex( int /*dimension*/, int index ) override
    {
       if( index < 0 || index > 15 )
-         qCritical(  ) << "Illegal index in PMBicubicPatch::PointProperty::setIndex" << endl;
+         qCritical(  ) << "Illegal index in PMBicubicPatch::PointProperty::setIndex" << Qt::endl;
       else
          m_index = index;
    }
-   virtual int size( PMObject* /*object*/, int /*dimension*/ ) const
+   virtual int size( PMObject* /*object*/, int /*dimension*/ ) const override
    {
       return 16;
    }
 protected:
-   virtual bool setProtected( PMObject* obj, const PMVariant& v )
+   virtual bool setProtected( PMObject* obj, const PMVariant& v ) override
    {
       PMBicubicPatch* p = ( PMBicubicPatch* ) obj;
       p->setControlPoint( m_index, v.vectorData() );
       return true;
    }
-   virtual PMVariant getProtected( const PMObject* obj )
+   virtual PMVariant getProtected( const PMObject* obj ) override
    {
       const PMBicubicPatch* p = ( const PMBicubicPatch* ) obj;
       return PMVariant( p->controlPoint( m_index ) );
@@ -84,26 +84,26 @@ public:
    {
       m_index = 0;
    }
-   virtual int dimensions() const { return 1; }
-   virtual void setIndex( int /*dimension*/, int index )
+   virtual int dimensions() const override { return 1; }
+   virtual void setIndex( int /*dimension*/, int index ) override
    {
       if( index < 0 || index > 3 )
-         qCritical() << "Illegal index in PMBicubicPatch::UVVectorProperty::setIndex" << endl;
+         qCritical() << "Illegal index in PMBicubicPatch::UVVectorProperty::setIndex" << Qt::endl;
       else
          m_index = index;
    }
-   virtual int size( PMObject* /*object*/, int /*dimension*/ ) const
+   virtual int size( PMObject* /*object*/, int /*dimension*/ ) const override
    {
       return 3;
    }
 protected:
-   virtual bool setProtected( PMObject* obj, const PMVariant& v )
+   virtual bool setProtected( PMObject* obj, const PMVariant& v ) override
    {
       PMBicubicPatch* p = static_cast<PMBicubicPatch*>(obj);
       p->setUVVector( m_index, v.vectorData() );
       return true;
    }
-   virtual PMVariant getProtected( const PMObject* obj )
+   virtual PMVariant getProtected( const PMObject* obj ) override
    {
       const PMBicubicPatch* p = ( const PMBicubicPatch* ) obj;
       return PMVariant( p->uvVector( m_index ) );

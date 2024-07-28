@@ -61,8 +61,8 @@ bool PMGLView::s_bDirect = true;
 
 
 PMGLView::PMGLView( PMPart* part, PMViewType t,
-                    QWidget* parent, Qt::WindowFlags f )
-      : PMViewBase( parent, f /*| Qt::MSWindowsOwnDC | Qt::WA_OpaquePaintEvent*/ )
+                    QWidget* parent )
+      : PMViewBase( parent )
 {
    //eticresetAttribute( Qt::WA_PaintOutsidePaintEvent, true );
    m_pPart = part;

@@ -154,8 +154,8 @@ public:
  * @author Max Judin.
  */
 //        :KParts::MainWindow( parent, f )
-PMDockMainWindow::PMDockMainWindow( QWidget* parent, Qt::WindowFlags f )//pmshell start program
-        :KParts::MainWindow( parent, f )
+PMDockMainWindow::PMDockMainWindow( QWidget* parent )//pmshell start program
+        :KParts::MainWindow( parent )
 {
 	dockManager = new PMDockManager( this );
     mainDockWidget = nullptr;
@@ -381,8 +381,8 @@ void PMDockWidgetHeader::setDragEnabled(bool b)
 
 
 /*************************************************************************/
-PMDockWidget::PMDockWidget(PMDockManager* dockManager, const QPixmap &pixmap, QWidget* parent, const QString& strCaption, const QString& strTabPageLabel, WindowFlags f)
-		: QWidget( parent, f )
+PMDockWidget::PMDockWidget(PMDockManager* dockManager, const QPixmap &pixmap, QWidget* parent, const QString& strCaption, const QString& strTabPageLabel)
+		: QWidget( parent )
         ,formerBrotherDockWidget(nullptr)
 		,currentDockPos(DockNone)
 		,formerDockPos(DockNone)
@@ -631,8 +631,9 @@ PMDockWidget* PMDockWidget::manualDock( PMDockWidget* target, DockPosition dockP
 {
     if( !manager ) return nullptr;
 
-    if ( this == target )
+    if ( this == target ) {
         return nullptr;  // docking to itself not possible
+	}
 
 	bool succes = true; // tested flag
 
