@@ -46,14 +46,14 @@ public:
     */
    virtual ~PMSolidObject();
    /** */
-   virtual PMMetaObject* metaObject() const;
+   virtual PMMetaObject* metaObject() const override;
    /** */
-   virtual void cleanUp() const;
+   virtual void cleanUp() const override;
 
    /** */
-   virtual void serialize( QDomElement& e, QDomDocument& doc ) const;
+   virtual void serialize( QDomElement& e, QDomDocument& doc ) const override;
    /** */
-   virtual void readAttributes( const PMXMLHelper& h );
+   virtual void readAttributes( const PMXMLHelper& h ) override;
 
    /**
     * Returns the state of the hollow flag.
@@ -75,7 +75,7 @@ public:
    void setInverse( bool yes );
 
    /** */
-   virtual void restoreMemento( PMMemento* s );
+   virtual void restoreMemento( PMMemento* s ) override;
 private:
    /**
     * IDs for @ref PMMementoData

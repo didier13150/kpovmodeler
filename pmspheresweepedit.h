@@ -47,20 +47,20 @@ public:
    PMSphereSweepEdit( QWidget* parent );
 
    /** */
-   virtual void displayObject( PMObject* o );
+   virtual void displayObject( PMObject* o ) override;
    /** */
-   virtual void updateControlPointSelection();
+   virtual void updateControlPointSelection() override;
 
    /** */
-   virtual bool isDataValid();
+   virtual bool isDataValid() override;
 
 protected:
    /** */
-   virtual void createTopWidgets();
+   virtual void createTopWidgets() override;
    /** */
-   virtual void createBottomWidgets();
+   virtual void createBottomWidgets() override;
    /** */
-   virtual void saveContents();
+   virtual void saveContents() override;
 
 protected slots:
    void slotTypeChanged( int );

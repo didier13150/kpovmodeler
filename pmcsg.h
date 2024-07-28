@@ -55,29 +55,29 @@ public:
    virtual ~PMCSG();
 
    /** */
-   virtual PMObject* copy() const { return new PMCSG( *this ); }
+   virtual PMObject* copy() const override { return new PMCSG( *this ); }
    /** */
-   virtual QString description() const;
+   virtual QString description() const override;
 
    /** */
-   virtual PMMetaObject* metaObject() const;
+   virtual PMMetaObject* metaObject() const override;
    /** */
-   virtual void cleanUp() const;
+   virtual void cleanUp() const override;
 
    /** */
-   virtual void serialize( QDomElement& e, QDomDocument& doc ) const;
+   virtual void serialize( QDomElement& e, QDomDocument& doc ) const override;
    /** */
-   virtual void readAttributes( const PMXMLHelper& h );
+   virtual void readAttributes( const PMXMLHelper& h ) override;
 
    /**
     * Returns a new @ref PMCSGEdit
     */
-   virtual PMDialogEditBase* editWidget( QWidget* parent ) const;
+   virtual PMDialogEditBase* editWidget( QWidget* parent ) const override;
    /**
     * Returns the name of the pixmap that is displayed in the tree view
     * and dialog view
     */
-   virtual QString pixmap() const;
+   virtual QString pixmap() const override;
 
    /**
     * Returns the type of the csg
@@ -89,7 +89,7 @@ public:
    void setCSGType( const PMCSGType t );
 
    /** */
-   virtual void restoreMemento( PMMemento* s );
+   virtual void restoreMemento( PMMemento* s ) override;
 private:
    /**
     * IDs for @ref PMMementoData

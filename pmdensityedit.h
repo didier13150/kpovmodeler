@@ -40,7 +40,7 @@ public:
    PMDensityEdit( QWidget* parent );
 
    /** */
-   virtual void displayObject( PMObject* o );
+   virtual void displayObject( PMObject* o ) override;
 
 protected:
    /** */

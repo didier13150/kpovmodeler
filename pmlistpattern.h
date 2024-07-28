@@ -55,19 +55,19 @@ public:
     */
    virtual QString listObjectType() const = 0;
    /** */
-   virtual PMMetaObject* metaObject() const;
+   virtual PMMetaObject* metaObject() const override;
    /** */
-   virtual void cleanUp() const;
+   virtual void cleanUp() const override;
 
    /** */
-   virtual void serialize( QDomElement& e, QDomDocument& doc ) const;
+   virtual void serialize( QDomElement& e, QDomDocument& doc ) const override;
    /** */
-   virtual void readAttributes( const PMXMLHelper& h );
+   virtual void readAttributes( const PMXMLHelper& h ) override;
 
    /**
     * Returns a new @ref PMListPatternEdit
     */
-   virtual PMDialogEditBase* editWidget( QWidget* parent ) const;
+   virtual PMDialogEditBase* editWidget( QWidget* parent ) const override;
 
    /**
     * Returns the color list type
@@ -96,7 +96,7 @@ public:
    void setMortar( double n );
 
    /** */
-   virtual void restoreMemento( PMMemento* s );
+   virtual void restoreMemento( PMMemento* s ) override;
 
 private:
    /**
@@ -141,19 +141,19 @@ public:
    virtual ~PMTextureList();
 
    /** */
-   virtual PMObject* copy() const { return new PMTextureList( *this ); }
+   virtual PMObject* copy() const override { return new PMTextureList( *this ); }
    /** */
-   virtual QString description() const;
+   virtual QString description() const override;
    /** */
-   virtual QString listObjectType() const { return QString( "Texture" ); }
+   virtual QString listObjectType() const override { return QString( "Texture" ); }
 
    /** */
-   virtual PMMetaObject* metaObject() const;
+   virtual PMMetaObject* metaObject() const override;
    /** */
-   virtual void cleanUp() const;
+   virtual void cleanUp() const override;
 
    /** */
-   virtual QString pixmap() const { return QString( "pmtexturelist" ); }
+   virtual QString pixmap() const override { return QString( "pmtexturelist" ); }
 
    static PMMetaObject* s_pMetaObject;
 };
@@ -180,19 +180,19 @@ public:
    virtual ~PMPigmentList();
 
    /** */
-   virtual PMObject* copy() const { return new PMPigmentList( *this ); }
+   virtual PMObject* copy() const override { return new PMPigmentList( *this ); }
    /** */
-   virtual QString description() const;
+   virtual QString description() const override;
    /** */
-   virtual QString listObjectType() const { return QString( "Pigment" ); }
+   virtual QString listObjectType() const override { return QString( "Pigment" ); }
 
    /** */
-   virtual PMMetaObject* metaObject() const;
+   virtual PMMetaObject* metaObject() const override;
    /** */
-   virtual void cleanUp() const;
+   virtual void cleanUp() const override;
 
    /** */
-   virtual QString pixmap() const { return QString( "pmpigmentlist" ); }
+   virtual QString pixmap() const override { return QString( "pmpigmentlist" ); }
 
    static PMMetaObject* s_pMetaObject;
 };
@@ -219,19 +219,19 @@ public:
    virtual ~PMColorList();
 
    /** */
-   virtual PMObject* copy() const { return new PMColorList( *this ); }
+   virtual PMObject* copy() const override { return new PMColorList( *this ); }
    /** */
-   virtual QString description() const;
+   virtual QString description() const override;
    /** */
-   virtual QString listObjectType() const { return QString( "SolidColor" ); }
+   virtual QString listObjectType() const override { return QString( "SolidColor" ); }
 
    /** */
-   virtual PMMetaObject* metaObject() const;
+   virtual PMMetaObject* metaObject() const override;
    /** */
-   virtual void cleanUp() const;
+   virtual void cleanUp() const override;
 
    /** */
-   virtual QString pixmap() const { return QString( "pmcolorlist" ); }
+   virtual QString pixmap() const override { return QString( "pmcolorlist" ); }
 
    static PMMetaObject* s_pMetaObject;
 };
@@ -258,19 +258,19 @@ public:
    virtual ~PMDensityList();
 
    /** */
-   virtual PMObject* copy() const { return new PMDensityList( *this ); }
+   virtual PMObject* copy() const override { return new PMDensityList( *this ); }
    /** */
-   virtual QString description() const;
+   virtual QString description() const override;
    /** */
-   virtual QString listObjectType() const { return QString( "Density" ); }
+   virtual QString listObjectType() const override { return QString( "Density" ); }
 
    /** */
-   virtual PMMetaObject* metaObject() const;
+   virtual PMMetaObject* metaObject() const override;
    /** */
-   virtual void cleanUp() const;
+   virtual void cleanUp() const override;
 
    /** */
-   virtual QString pixmap() const { return QString( "pmdensitylist" ); }
+   virtual QString pixmap() const override { return QString( "pmdensitylist" ); }
 
    static PMMetaObject* s_pMetaObject;
 };
@@ -297,32 +297,32 @@ public:
    virtual ~PMNormalList();
 
    /** */
-   virtual PMObject* copy() const { return new PMNormalList( *this ); }
+   virtual PMObject* copy() const override { return new PMNormalList( *this ); }
    /** */
-   virtual QString description() const;
+   virtual QString description() const override;
    /** */
-   virtual QString listObjectType() const { return QString( "Normal" ); }
+   virtual QString listObjectType() const override { return QString( "Normal" ); }
 
    /** */
-   virtual PMMetaObject* metaObject() const;
+   virtual PMMetaObject* metaObject() const override;
    /** */
-   virtual void cleanUp() const;
+   virtual void cleanUp() const override;
 
    /**
     * Returns a new @ref PMListPatternEdit
     */
-   virtual PMDialogEditBase* editWidget( QWidget* parent ) const;
+   virtual PMDialogEditBase* editWidget( QWidget* parent ) const override;
 
    /** */
-   virtual QString pixmap() const { return QString( "pmnormallist" ); }
+   virtual QString pixmap() const override { return QString( "pmnormallist" ); }
 
    /** */
-   virtual void serialize( QDomElement& e, QDomDocument& doc ) const;
+   virtual void serialize( QDomElement& e, QDomDocument& doc ) const override;
    /** */
-   virtual void readAttributes( const PMXMLHelper& h );
+   virtual void readAttributes( const PMXMLHelper& h ) override;
 
    /** */
-   virtual void restoreMemento( PMMemento* s );
+   virtual void restoreMemento( PMMemento* s ) override;
 
    /**
     * Returns the normal's depth

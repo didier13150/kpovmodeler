@@ -133,8 +133,8 @@ public slots:
    void slotViewsMenuAboutToShow();
 
 protected:
-    virtual bool queryClose();
-	virtual void showEvent( QShowEvent* );
+    virtual bool queryClose() override;
+	virtual void showEvent( QShowEvent* ) override;
     void saveAs();
     void setSize();
 
@@ -149,7 +149,7 @@ public:
 
 private:
 
-   void closeEvent( QCloseEvent *event );
+   void closeEvent( QCloseEvent *event ) override;
    void shellClose();
 
    KRecentFilesAction* m_pRecent;

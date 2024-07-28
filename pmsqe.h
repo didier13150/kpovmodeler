@@ -51,26 +51,26 @@ public:
    virtual ~PMSuperquadricEllipsoid();
 
    /** */
-   virtual PMObject* copy() const { return new PMSuperquadricEllipsoid( *this ); }
+   virtual PMObject* copy() const override { return new PMSuperquadricEllipsoid( *this ); }
    /** */
-   virtual QString description() const;
+   virtual QString description() const override;
 
    /** */
-   virtual PMMetaObject* metaObject() const;
+   virtual PMMetaObject* metaObject() const override;
 
    /** */
-   virtual void serialize( QDomElement& e, QDomDocument& doc ) const;
+   virtual void serialize( QDomElement& e, QDomDocument& doc ) const override;
    /** */
-   virtual void readAttributes( const PMXMLHelper& h );
+   virtual void readAttributes( const PMXMLHelper& h ) override;
    /**
     * Returns a new @ref PMSuperquadricEllipsoidEdit
     */
-   virtual PMDialogEditBase* editWidget( QWidget* parent ) const;
+   virtual PMDialogEditBase* editWidget( QWidget* parent ) const override;
    /**
     * Returns the name of the pixmap that is displayed in the tree view
     * and dialog view
     */
-   virtual QString pixmap() const { return QString( "pmsqe" ); }
+   virtual QString pixmap() const override { return QString( "pmsqe" ); }
 
    /**
     * Returns the east west exponent
@@ -90,9 +90,9 @@ public:
    void setNorthSouthExponent( double n );
 
    /** */
-   virtual void restoreMemento( PMMemento* s );
+   virtual void restoreMemento( PMMemento* s ) override;
    /** */
-   virtual bool hasDisplayDetail() const { return true; }
+   virtual bool hasDisplayDetail() const override { return true; }
 
    /**
     * Sets the number of latitutes
@@ -111,17 +111,17 @@ public:
     */
    static int vSteps() { return s_vStep; }
    /** */
-   virtual void cleanUp() const;
+   virtual void cleanUp() const override;
 
 protected:
    /** */
-   virtual bool isDefault();
+   virtual bool isDefault() override;
    /** */
-   virtual void createViewStructure();
+   virtual void createViewStructure() override;
    /** */
-   virtual PMViewStructure* defaultViewStructure() const;
+   virtual PMViewStructure* defaultViewStructure() const override;
    /** */
-   virtual int viewStructureParameterKey() const { return s_parameterKey + globalDetailKey(); }
+   virtual int viewStructureParameterKey() const override { return s_parameterKey + globalDetailKey(); }
 
 private:
    /**

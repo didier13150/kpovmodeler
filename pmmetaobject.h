@@ -228,7 +228,7 @@ public: \
    } \
    \
 protected: \
-   bool setProtected( PMObject* obj, const PMVariant& v ) \
+   bool setProtected( PMObject* obj, const PMVariant& v ) override \
    { \
       ObjectClass* o = static_cast<ObjectClass*>(obj); \
       switch( type() ) \
@@ -266,7 +266,7 @@ protected: \
       return true; \
    } \
    \
-   PMVariant getProtected( const PMObject* obj ) \
+   PMVariant getProtected( const PMObject* obj ) override \
    { \
       const ObjectClass* o = ( const ObjectClass* ) obj; \
       PMVariant result; \

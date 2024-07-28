@@ -49,22 +49,22 @@ public:
    virtual ~PMScene();
 
    /** */
-   virtual PMMetaObject* metaObject() const;
+   virtual PMMetaObject* metaObject() const override;
    /** */
-   virtual void cleanUp() const;
+   virtual void cleanUp() const override;
 
    /** */
-   virtual PMObject* copy() const { return new PMScene( *this ); }
+   virtual PMObject* copy() const override { return new PMScene( *this ); }
    /** */
-   virtual QString description() const;
+   virtual QString description() const override;
 
    /** */
-   virtual QString pixmap() const { return QString( "pmscene" ); }
+   virtual QString pixmap() const override { return QString( "pmscene" ); }
 
    /** */
-   virtual void serialize( QDomElement& e, QDomDocument& doc ) const;
+   virtual void serialize( QDomElement& e, QDomDocument& doc ) const override;
    /** */
-   virtual void readAttributes( const PMXMLHelper& h );
+   virtual void readAttributes( const PMXMLHelper& h ) override;
 
    /**
     * Returns the list of render modes

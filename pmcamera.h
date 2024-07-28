@@ -53,24 +53,24 @@ public:
    virtual ~PMCamera();
 
    /** */
-   virtual PMObject* copy() const { return new PMCamera( *this ); }
+   virtual PMObject* copy() const override { return new PMCamera( *this ); }
    /** */
-   virtual QString description() const;
+   virtual QString description() const override;
 
    /** */
-   virtual PMMetaObject* metaObject() const;
+   virtual PMMetaObject* metaObject() const override;
 
    /** */
-   virtual void serialize( QDomElement& e, QDomDocument& doc ) const;
+   virtual void serialize( QDomElement& e, QDomDocument& doc ) const override;
    /** */
-   virtual void readAttributes( const PMXMLHelper& h );
+   virtual void readAttributes( const PMXMLHelper& h ) override;
 
    /**
     * Returns a new @ref PMCameraEdit
     */
-   virtual PMDialogEditBase* editWidget( QWidget* parent ) const;
+   virtual PMDialogEditBase* editWidget( QWidget* parent ) const override;
    /** */
-   virtual QString pixmap() const { return QString( "pmcamera" ); }
+   virtual QString pixmap() const override { return QString( "pmcamera" ); }
 
    /**
     * Returns the location
@@ -219,18 +219,18 @@ public:
    /**
     * Returns the export flag
     */
-   virtual bool exportPovray() const { return m_export; }
+   virtual bool exportPovray() const override { return m_export; }
    /**
     * Sets the export flag
     */
    void setExportPovray( bool ex );
 
    /** */
-   virtual void restoreMemento( PMMemento* s );
+   virtual void restoreMemento( PMMemento* s ) override;
    /** */
-   virtual void controlPoints( PMControlPointList& list );
+   virtual void controlPoints( PMControlPointList& list ) override;
    /** */
-   virtual void controlPointsChanged( PMControlPointList& list );
+   virtual void controlPointsChanged( PMControlPointList& list ) override;
 
    /**
     * Calculates the new right, up and direction vector with the
@@ -247,15 +247,15 @@ public:
     */
    static CameraType stringToCameraType( const QString& s );
    /** */
-   virtual void cleanUp() const;
+   virtual void cleanUp() const override;
 
 protected:
    /** */
-   virtual bool isDefault() { return false; }
+   virtual bool isDefault() override { return false; }
    /** */
-   virtual void createViewStructure();
+   virtual void createViewStructure() override;
    /** */
-   virtual PMViewStructure* defaultViewStructure() const;
+   virtual PMViewStructure* defaultViewStructure() const override;
 
 private:
    /**

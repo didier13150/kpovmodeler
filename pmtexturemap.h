@@ -49,23 +49,23 @@ public:
    virtual ~PMTextureMapBase();
 
    /** */
-   virtual bool dataChangeOnInsertRemove() const { return true; }
+   virtual bool dataChangeOnInsertRemove() const override { return true; }
 
    /** */
-   virtual PMMetaObject* metaObject() const;
+   virtual PMMetaObject* metaObject() const override;
    /** */
-   virtual void cleanUp() const;
+   virtual void cleanUp() const override;
 
    /** */
-   virtual void childAdded( PMObject* o );
+   virtual void childAdded( PMObject* o ) override;
    /** */
    using PMCompositeObject::takeChild;
-   virtual bool takeChild( PMObject* o );
+   virtual bool takeChild( PMObject* o ) override;
 
    /** */
-   virtual void serialize( QDomElement& e, QDomDocument& doc ) const;
+   virtual void serialize( QDomElement& e, QDomDocument& doc ) const override;
    /** */
-   virtual void readAttributes( const PMXMLHelper& h );
+   virtual void readAttributes( const PMXMLHelper& h ) override;
 
    /**
     * Returns the map object type
@@ -75,12 +75,12 @@ public:
    /**
     * Returns a new @ref PMTextureMapEdit
     */
-   virtual PMDialogEditBase* editWidget( QWidget* parent ) const;
+   virtual PMDialogEditBase* editWidget( QWidget* parent ) const override;
 
    /** */
-   virtual void createMemento();
+   virtual void createMemento() override;
    /** */
-   virtual void restoreMemento( PMMemento* s );
+   virtual void restoreMemento( PMMemento* s ) override;
 
    /**
     * Returns the map values
@@ -145,19 +145,19 @@ public:
    virtual ~PMTextureMap();
 
    /** */
-   virtual PMObject* copy() const { return new PMTextureMap( *this ); }
+   virtual PMObject* copy() const override { return new PMTextureMap( *this ); }
    /** */
-   virtual QString description() const;
+   virtual QString description() const override;
    /** */
-   virtual QString mapType() const { return QString( "Texture" ); }
+   virtual QString mapType() const override { return QString( "Texture" ); }
 
    /** */
-   virtual PMMetaObject* metaObject() const;
+   virtual PMMetaObject* metaObject() const override;
    /** */
-   virtual void cleanUp() const;
+   virtual void cleanUp() const override;
 
    /** */
-   virtual QString pixmap() const { return QString( "pmtexturemap" ); }
+   virtual QString pixmap() const override { return QString( "pmtexturemap" ); }
 
 private:
    static PMMetaObject* s_pMetaObject;
@@ -185,19 +185,19 @@ public:
    virtual ~PMPigmentMap();
 
    /** */
-   virtual PMObject* copy() const { return new PMPigmentMap( *this ); }
+   virtual PMObject* copy() const override { return new PMPigmentMap( *this ); }
    /** */
-   virtual QString description() const;
+   virtual QString description() const override;
    /** */
-   virtual QString mapType() const { return QString( "Pigment" ); }
+   virtual QString mapType() const override { return QString( "Pigment" ); }
 
    /** */
-   virtual PMMetaObject* metaObject() const;
+   virtual PMMetaObject* metaObject() const override;
    /** */
-   virtual void cleanUp() const;
+   virtual void cleanUp() const override;
 
    /** */
-   virtual QString pixmap() const { return QString( "pmpigmentmap" ); }
+   virtual QString pixmap() const override { return QString( "pmpigmentmap" ); }
 
 private:
    static PMMetaObject* s_pMetaObject;
@@ -225,19 +225,19 @@ public:
    virtual ~PMColorMap();
 
    /** */
-   virtual PMObject* copy() const { return new PMColorMap( *this ); }
+   virtual PMObject* copy() const override { return new PMColorMap( *this ); }
    /** */
-   virtual QString description() const;
+   virtual QString description() const override;
    /** */
-   virtual QString mapType() const { return QString( "SolidColor" ); }
+   virtual QString mapType() const override { return QString( "SolidColor" ); }
 
    /** */
-   virtual PMMetaObject* metaObject() const;
+   virtual PMMetaObject* metaObject() const override;
    /** */
-   virtual void cleanUp() const;
+   virtual void cleanUp() const override;
 
    /** */
-   virtual QString pixmap() const { return QString( "pmcolormap" ); }
+   virtual QString pixmap() const override { return QString( "pmcolormap" ); }
 
 private:
    static PMMetaObject* s_pMetaObject;
@@ -266,19 +266,19 @@ public:
    virtual ~PMNormalMap();
 
    /** */
-   virtual PMObject* copy() const { return new PMNormalMap( *this ); }
+   virtual PMObject* copy() const override { return new PMNormalMap( *this ); }
    /** */
-   virtual QString description() const;
+   virtual QString description() const override;
    /** */
-   virtual QString mapType() const { return QString( "Normal" ); }
+   virtual QString mapType() const override { return QString( "Normal" ); }
 
    /** */
-   virtual PMMetaObject* metaObject() const;
+   virtual PMMetaObject* metaObject() const override;
    /** */
-   virtual void cleanUp() const;
+   virtual void cleanUp() const override;
 
    /** */
-   virtual QString pixmap() const { return QString( "pmnormalmap" ); }
+   virtual QString pixmap() const override { return QString( "pmnormalmap" ); }
 
 private:
    static PMMetaObject* s_pMetaObject;
@@ -306,19 +306,19 @@ public:
    virtual ~PMSlopeMap();
 
    /** */
-   virtual PMObject* copy() const { return new PMSlopeMap( *this ); }
+   virtual PMObject* copy() const override { return new PMSlopeMap( *this ); }
    /** */
-   virtual QString description() const;
+   virtual QString description() const override;
    /** */
-   virtual QString mapType() const { return QString( "Slope" ); }
+   virtual QString mapType() const override { return QString( "Slope" ); }
 
    /** */
-   virtual PMMetaObject* metaObject() const;
+   virtual PMMetaObject* metaObject() const override;
    /** */
-   virtual void cleanUp() const;
+   virtual void cleanUp() const override;
 
    /** */
-   virtual QString pixmap() const { return QString( "pmslopemap" ); }
+   virtual QString pixmap() const override { return QString( "pmslopemap" ); }
 
 private:
    static PMMetaObject* s_pMetaObject;
@@ -346,19 +346,19 @@ public:
    virtual ~PMDensityMap();
 
    /** */
-   virtual PMObject* copy() const { return new PMDensityMap( *this ); }
+   virtual PMObject* copy() const override { return new PMDensityMap( *this ); }
    /** */
-   virtual QString description() const;
+   virtual QString description() const override;
    /** */
-   virtual QString mapType() const { return QString( "Density" ); }
+   virtual QString mapType() const override { return QString( "Density" ); }
 
    /** */
-   virtual PMMetaObject* metaObject() const;
+   virtual PMMetaObject* metaObject() const override;
    /** */
-   virtual void cleanUp() const;
+   virtual void cleanUp() const override;
 
    /** */
-   virtual QString pixmap() const { return QString( "pmdensitymap" ); }
+   virtual QString pixmap() const override { return QString( "pmdensitymap" ); }
 
 private:
    static PMMetaObject* s_pMetaObject;

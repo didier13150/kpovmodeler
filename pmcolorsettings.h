@@ -35,13 +35,13 @@ public:
     */
    PMColorSettings( QWidget* parent = 0 );
    /** */
-   virtual void displaySettings();
+   virtual void displaySettings() override;
    /** */
-   virtual bool validateData();
+   virtual bool validateData() override;
    /** */
-   virtual void applySettings();
+   virtual void applySettings() override;
    /** */
-   virtual void displayDefaults();
+   virtual void displayDefaults() override;
 
 private slots:
    void selectColor( QPushButton *b );

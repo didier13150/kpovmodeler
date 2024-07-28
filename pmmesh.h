@@ -50,29 +50,29 @@ public:
    virtual ~PMMesh();
 
    /** */
-   virtual PMObject* copy() const { return new PMMesh( *this ); }
+   virtual PMObject* copy() const override { return new PMMesh( *this ); }
    /** */
-   virtual QString description() const;
+   virtual QString description() const override;
 
    /** */
-   virtual PMMetaObject* metaObject() const;
+   virtual PMMetaObject* metaObject() const override;
    /** */
-   virtual void cleanUp() const;
+   virtual void cleanUp() const override;
 
    /** */
-   virtual void serialize( QDomElement& e, QDomDocument& doc ) const;
+   virtual void serialize( QDomElement& e, QDomDocument& doc ) const override;
    /** */
-   virtual void readAttributes( const PMXMLHelper& h );
+   virtual void readAttributes( const PMXMLHelper& h ) override;
 
    /**
     * Returns a new @ref PMMeshEdit
     */
-   virtual PMDialogEditBase* editWidget( QWidget* parent ) const;
+   virtual PMDialogEditBase* editWidget( QWidget* parent ) const override;
    /**
     * Returns the name of the pixmap that is displayed in the tree view
     * and dialog view
     */
-   virtual QString pixmap() const { return QString( "pmmesh" ); }
+   virtual QString pixmap() const override { return QString( "pmmesh" ); }
 
    /**
     * Returns the hierarchy flag
@@ -102,13 +102,13 @@ public:
    void setInsideVector( const PMVector& iv );
 
    /** */
-   virtual void createMemento();
+   virtual void createMemento() override;
    /** */
-   virtual void restoreMemento( PMMemento* s );
+   virtual void restoreMemento( PMMemento* s ) override;
    /** */
-   virtual void controlPoints( PMControlPointList& list );
+   virtual void controlPoints( PMControlPointList& list ) override;
    /** */
-   virtual void controlPointsChangedList( PMControlPointList& list, PMObjectList& objList );
+   virtual void controlPointsChangedList( PMControlPointList& list, PMObjectList& objList ) override;
 
 private:
    /**

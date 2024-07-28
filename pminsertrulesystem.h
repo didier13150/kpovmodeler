@@ -66,7 +66,7 @@ public:
     */
    PMRuleClass( QDomElement& e );
    /** */
-   virtual bool matches( const QString& className );
+   virtual bool matches( const QString& className ) override;
 private:
    QString m_className;
    PMPrototypeManager* m_pPrototypeManager;
@@ -113,7 +113,7 @@ public:
    PMRuleGroup( QDomElement& e, QList< PMRuleDefineGroup* >& globalGroups,
                 QList< PMRuleDefineGroup* >& localGroups );
    /** */
-   bool matches( const QString& className );
+   bool matches( const QString& className ) override;
 private:
    PMRuleDefineGroup* m_pGroup;
 };
@@ -192,9 +192,9 @@ public:
     */
    PMRuleProperty( QDomElement& e );
    /** */
-   virtual QString type() const { return QString( "Property" ); }
+   virtual QString type() const override { return QString( "Property" ); }
    /** */
-   virtual PMVariant evaluate( const PMObject* o );
+   virtual PMVariant evaluate( const PMObject* o ) override;
 private:
    QString m_property;
 };
@@ -211,9 +211,9 @@ public:
     */
    PMRuleConstant( QDomElement& e );
    /** */
-   virtual QString type() const { return QString( "Constant" ); }
+   virtual QString type() const override { return QString( "Constant" ); }
    /** */
-   virtual PMVariant evaluate( const PMObject* );
+   virtual PMVariant evaluate( const PMObject* ) override;
    /**
     * Converts the constant to the given type and returns true if
     * successful.
@@ -239,17 +239,17 @@ public:
     */
    virtual ~PMRuleCount();
    /** */
-   virtual QString type() const { return QString( "Count" ); }
+   virtual QString type() const override { return QString( "Count" ); }
    /** */
-   virtual PMVariant evaluate( const PMObject* );
+   virtual PMVariant evaluate( const PMObject* ) override;
 protected:
    /** */
    virtual void countChildProtected( const QString& className,
-                                     bool afterInsertPoint );
+                                     bool afterInsertPoint ) override;
    /**
     * Reset all cached data (like counted child objects) here.
     */
-   virtual void resetProtected();
+   virtual void resetProtected() override;
 private:
    QList< PMRuleCategory* > m_categories;
    int m_number;
@@ -286,9 +286,9 @@ public:
    PMRuleNot( QDomElement& e, QList< PMRuleDefineGroup* >& globalGroups,
               QList< PMRuleDefineGroup* >& localGroups );
    /** */
-   virtual QString type() const { return QString( "Not" ); }
+   virtual QString type() const override { return QString( "Not" ); }
    /** */
-   virtual bool evaluate( const PMObject* object );
+   virtual bool evaluate( const PMObject* object ) override;
 private:
    PMRuleCondition* m_pChild;
 };
@@ -306,9 +306,9 @@ public:
    PMRuleAnd( QDomElement& e, QList< PMRuleDefineGroup* >& globalGroups,
               QList< PMRuleDefineGroup* >& localGroups );
    /** */
-   virtual QString type() const { return QString( "And" ); }
+   virtual QString type() const override { return QString( "And" ); }
    /** */
-   virtual bool evaluate( const PMObject* object );
+   virtual bool evaluate( const PMObject* object ) override;
 private:
    QList<PMRuleCondition*> m_conditions;
 };
@@ -325,9 +325,9 @@ public:
    PMRuleOr( QDomElement& e, QList< PMRuleDefineGroup* >& globalGroups,
              QList< PMRuleDefineGroup* >& localGroups );
    /** */
-   virtual QString type() const { return QString( "Or" ); }
+   virtual QString type() const override { return QString( "Or" ); }
    /** */
-   virtual bool evaluate( const PMObject* object );
+   virtual bool evaluate( const PMObject* object ) override;
 private:
    QList<PMRuleCondition*> m_conditions;
 };
@@ -349,15 +349,15 @@ public:
     */
    virtual ~PMRuleBefore();
    /** */
-   virtual QString type() const { return QString( "Before" ); }
+   virtual QString type() const override { return QString( "Before" ); }
    /** */
-   virtual bool evaluate( const PMObject* object );
+   virtual bool evaluate( const PMObject* object ) override;
 protected:
    /** */
    virtual void countChildProtected( const QString& className,
-                                     bool afterInsertPoint );
+                                     bool afterInsertPoint ) override;
    /** */
-   virtual void resetProtected();
+   virtual void resetProtected() override;
 private:
    QList< PMRuleCategory* > m_categories;
    bool m_contains;
@@ -380,15 +380,15 @@ public:
     */
    virtual ~PMRuleAfter();
    /** */
-   virtual QString type() const { return QString( "After" ); }
+   virtual QString type() const override { return QString( "After" ); }
    /** */
-   virtual bool evaluate( const PMObject* object );
+   virtual bool evaluate( const PMObject* object ) override;
 protected:
    /** */
    virtual void countChildProtected( const QString& className,
-                                     bool afterInsertPoint );
+                                     bool afterInsertPoint ) override;
    /** */
-   virtual void resetProtected();
+   virtual void resetProtected() override;
 private:
    QList< PMRuleCategory* > m_categories;
    bool m_contains;
@@ -411,15 +411,15 @@ public:
     */
    virtual ~PMRuleContains();
    /** */
-   virtual QString type() const { return QString( "Contains" ); }
+   virtual QString type() const override { return QString( "Contains" ); }
    /** */
-   virtual bool evaluate( const PMObject* object );
+   virtual bool evaluate( const PMObject* object ) override;
 protected:
    /** */
    virtual void countChildProtected( const QString& className,
-                                     bool afterInsertPoint );
+                                     bool afterInsertPoint ) override;
    /** */
-   virtual void resetProtected();
+   virtual void resetProtected() override;
 private:
    QList< PMRuleCategory* > m_categories;
    bool m_contains;
@@ -437,7 +437,7 @@ public:
    PMRuleCompare( QDomElement& e, QList< PMRuleDefineGroup* >& globalGroups,
                   QList< PMRuleDefineGroup* >& localGroups );
    /** */
-   virtual bool evaluate( const PMObject* object );
+   virtual bool evaluate( const PMObject* object ) override;
 protected:
    /**
     * Compares the two variants. The variants have the same type.
@@ -461,10 +461,10 @@ public:
    PMRuleLess( QDomElement& e, QList< PMRuleDefineGroup* >& globalGroups,
                QList< PMRuleDefineGroup* >& localGroups );
    /** */
-   virtual QString type() const { return QString( "Less" ); }
+   virtual QString type() const override { return QString( "Less" ); }
 protected:
    /** */
-   virtual bool compare( const PMVariant& v1, const PMVariant& v2 );
+   virtual bool compare( const PMVariant& v1, const PMVariant& v2 ) override;
 };
 
 /**
@@ -479,10 +479,10 @@ public:
    PMRuleGreater( QDomElement& e, QList< PMRuleDefineGroup* >& globalGroups,
                   QList< PMRuleDefineGroup* >& localGroups );
    /** */
-   virtual QString type() const { return QString( "Greater" ); }
+   virtual QString type() const override { return QString( "Greater" ); }
 protected:
    /** */
-   virtual bool compare( const PMVariant& v1, const PMVariant& v2 );
+   virtual bool compare( const PMVariant& v1, const PMVariant& v2 ) override;
 };
 
 /**
@@ -497,10 +497,10 @@ public:
    PMRuleEqual( QDomElement& e, QList< PMRuleDefineGroup* >& globalGroups,
                 QList< PMRuleDefineGroup* >& localGroups );
    /** */
-   virtual QString type() const { return QString( "Equal" ); }
+   virtual QString type() const override { return QString( "Equal" ); }
 protected:
    /** */
-   virtual bool compare( const PMVariant& v1, const PMVariant& v2 );
+   virtual bool compare( const PMVariant& v1, const PMVariant& v2 ) override;
 };
 
 class PMRule : public PMRuleBase
@@ -516,7 +516,7 @@ public:
     */
    virtual ~PMRule();
    /** */
-   virtual QString type() const { return QString( "Rule" ); }
+   virtual QString type() const override { return QString( "Rule" ); }
    /**
     * Returns true if this rule matches for the given class.
     */

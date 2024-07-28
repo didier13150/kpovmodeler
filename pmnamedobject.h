@@ -46,19 +46,19 @@ public:
    ~PMNamedObject();
 
    /** */
-   virtual PMMetaObject* metaObject() const;
+   virtual PMMetaObject* metaObject() const override;
    /** */
-   virtual void cleanUp() const;
+   virtual void cleanUp() const override;
 
    /** */
-   virtual void serialize( QDomElement& e, QDomDocument& doc ) const;
+   virtual void serialize( QDomElement& e, QDomDocument& doc ) const override;
    /** */
-   virtual void readAttributes( const PMXMLHelper& h );
+   virtual void readAttributes( const PMXMLHelper& h ) override;
 
    /**
     * Returns the name of the object. This is the name that helps
     * the user to identify a object (like "south_wall", "floor" ...) */
-   virtual QString name() const { return m_name; }
+   virtual QString name() const override { return m_name; }
    /**
     * Sets the name of the object.
     */
@@ -66,10 +66,10 @@ public:
    /**
     * Returns true if the object can have a name
     */
-   virtual bool canHaveName() const { return true; }
+   virtual bool canHaveName() const override { return true; }
 
    /** */
-   virtual void restoreMemento( PMMemento* s );
+   virtual void restoreMemento( PMMemento* s ) override;
 private:
    /**
     * IDs for @ref PMMementoData

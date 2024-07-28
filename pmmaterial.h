@@ -45,21 +45,21 @@ public:
    virtual ~PMMaterial();
 
    /** */
-   virtual PMObject* copy() const { return new PMMaterial( *this ); }
+   virtual PMObject* copy() const override { return new PMMaterial( *this ); }
    /** */
-   virtual QString description() const;
+   virtual QString description() const override;
 
    /** */
-   virtual PMMetaObject* metaObject() const;
+   virtual PMMetaObject* metaObject() const override;
    /** */
-   virtual void cleanUp() const;
+   virtual void cleanUp() const override;
 
    /**
     * Returns a new @ref PMMaterialEdit
     */
-   virtual PMDialogEditBase* editWidget( QWidget* parent ) const;
+   virtual PMDialogEditBase* editWidget( QWidget* parent ) const override;
    /** */
-   virtual QString pixmap() const { return QString( "pmmaterial" ); }
+   virtual QString pixmap() const override { return QString( "pmmaterial" ); }
 
 private:
    /**

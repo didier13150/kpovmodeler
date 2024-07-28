@@ -46,12 +46,12 @@ public:
     * Destructor
     */
    ~PMFormulaLabel();
-   virtual QSize sizeHint() const;
-   virtual QSize minimumSizeHint() const;
+   virtual QSize sizeHint() const override;
+   virtual QSize minimumSizeHint() const override;
    
 protected:
    virtual void drawContents( QPainter* p );
-   virtual void paintEvent( QPaintEvent* e );
+   virtual void paintEvent( QPaintEvent* e ) override;
    virtual void fontChange( const QFont& oldFont );
    
 private:

@@ -60,17 +60,17 @@ public:
    virtual ~PMMoveCommand();
 
    /** */
-   virtual int errorFlags( PMPart* );
+   virtual int errorFlags( PMPart* ) override;
    
 protected:
    /**
     * Executes the command and stores undo information
     */
-   virtual void execute( PMCommandManager* theManager );
+   virtual void execute( PMCommandManager* theManager ) override;
    /**
     * Undo the command
     */
-   virtual void undo( PMCommandManager* theManager );
+   virtual void undo( PMCommandManager* theManager ) override;
    
 private:
    PMObject* m_pParent;

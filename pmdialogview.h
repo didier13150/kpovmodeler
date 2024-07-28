@@ -72,9 +72,9 @@ public:
    ~PMDialogView();
 
    /** */
-   virtual QString viewType() const { return QString( "dialogview" ); }
+   virtual QString viewType() const override { return QString( "dialogview" ); }
    /** */
-   virtual QString description() const;
+   virtual QString description() const override;
 
 public slots:
    /**
@@ -106,7 +106,7 @@ signals:
    void destroyed( PMDialogView* v );
 
 protected:
-   virtual void keyPressEvent( QKeyEvent* );
+   virtual void keyPressEvent( QKeyEvent* ) override;
 
 private slots:
    void slotApply();
@@ -149,10 +149,10 @@ class PMDialogViewFactory : public PMViewTypeFactory
 {
 public:
    PMDialogViewFactory() { }
-   virtual QString viewType() const { return QString( "dialogview" ); }
-   virtual QString description() const;
-   virtual QString iconName() const { return QString( "pmdialogview" ); }
-   virtual PMViewBase* newInstance( QWidget* parent, PMPart* part ) const
+   virtual QString viewType() const override { return QString( "dialogview" ); }
+   virtual QString description() const override;
+   virtual QString iconName() const override { return QString( "pmdialogview" ); }
+   virtual PMViewBase* newInstance( QWidget* parent, PMPart* part ) const override
    {
       return new PMDialogView( part, parent );
    }

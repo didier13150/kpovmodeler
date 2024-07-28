@@ -45,29 +45,29 @@ public:
    virtual ~PMNormal();
 
    /** */
-   virtual PMObject* copy() const { return new PMNormal( *this ); }
+   virtual PMObject* copy() const override { return new PMNormal( *this ); }
    /** */
-   virtual QString description() const;
+   virtual QString description() const override;
 
    /** */
-   virtual PMMetaObject* metaObject() const;
+   virtual PMMetaObject* metaObject() const override;
    /** */
-   virtual void cleanUp() const;
+   virtual void cleanUp() const override;
 
    /** */
-   virtual void serialize( QDomElement& e, QDomDocument& doc ) const;
+   virtual void serialize( QDomElement& e, QDomDocument& doc ) const override;
    /** */
-   virtual void readAttributes( const PMXMLHelper& h );
+   virtual void readAttributes( const PMXMLHelper& h ) override;
 
    /**
     * Returns a new @ref PMNormalEdit
     */
-   virtual PMDialogEditBase* editWidget( QWidget* parent ) const;
+   virtual PMDialogEditBase* editWidget( QWidget* parent ) const override;
    /** */
-   virtual QString pixmap() const { return QString( "pmnormal" ); }
+   virtual QString pixmap() const override { return QString( "pmnormal" ); }
 
    /** */
-   virtual void restoreMemento( PMMemento* s );
+   virtual void restoreMemento( PMMemento* s ) override;
 
    /**
     * Returns true if bump_size is enabled

@@ -45,21 +45,21 @@ public:
    virtual ~PMInteriorTexture();
 
    /** */
-   virtual PMObject* copy() const { return new PMInteriorTexture( *this ); }
+   virtual PMObject* copy() const override { return new PMInteriorTexture( *this ); }
    /** */
-   virtual QString description() const;
+   virtual QString description() const override;
 
    /** */
-   virtual PMMetaObject* metaObject() const;
+   virtual PMMetaObject* metaObject() const override;
    /** */
-   virtual void cleanUp() const;
+   virtual void cleanUp() const override;
 
    /**
     * Returns a new @ref PMTextureEdit
     */
-   virtual PMDialogEditBase* editWidget( QWidget* parent ) const;
+   virtual PMDialogEditBase* editWidget( QWidget* parent ) const override;
    /** */
-   virtual QString pixmap() const { return QString( "pminteriortexture" ); }
+   virtual QString pixmap() const override { return QString( "pminteriortexture" ); }
 
 private:
    static PMMetaObject* s_pMetaObject;

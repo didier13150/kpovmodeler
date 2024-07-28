@@ -92,7 +92,7 @@ protected slots:
    virtual void slotOk();
 
 protected:
-   virtual void resizeEvent( QResizeEvent* ev );
+   virtual void resizeEvent( QResizeEvent* ev ) override;
 
 private:
    void displayList();
@@ -132,7 +132,7 @@ public:
    void setButton( QPushButton* btn, bool b );
 
 protected:
-   virtual void resizeEvent( QResizeEvent* ev );
+   virtual void resizeEvent( QResizeEvent* ev ) override;
 
 
 protected slots:

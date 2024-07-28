@@ -53,26 +53,26 @@ public:
    virtual ~PMHeightField();
 
    /** */
-   virtual PMObject* copy() const { return new PMHeightField( *this ); }
+   virtual PMObject* copy() const override { return new PMHeightField( *this ); }
    /** */
-   virtual QString description() const;
+   virtual QString description() const override;
 
    /** */
-   virtual PMMetaObject* metaObject() const;
+   virtual PMMetaObject* metaObject() const override;
 
    /** */
-   virtual void serialize( QDomElement& e, QDomDocument& doc ) const;
+   virtual void serialize( QDomElement& e, QDomDocument& doc ) const override;
    /** */
-   virtual void readAttributes( const PMXMLHelper& h );
+   virtual void readAttributes( const PMXMLHelper& h ) override;
    /**
     * Returns a new @ref PMHeightFieldEdit
     */
-   virtual PMDialogEditBase* editWidget( QWidget* parent ) const;
+   virtual PMDialogEditBase* editWidget( QWidget* parent ) const override;
    /**
     * Returns the name of the pixmap that is displayed in the tree view
     * and dialog view
     */
-   virtual QString pixmap() const { return QString( "pmheightfield" ); }
+   virtual QString pixmap() const override { return QString( "pmheightfield" ); }
 
    /**
     * Returns the height field type
@@ -125,24 +125,24 @@ public:
    static int variance() { return s_variance; }
 
    /** */
-   virtual void restoreMemento( PMMemento* s );
+   virtual void restoreMemento( PMMemento* s ) override;
    /** */
-   virtual bool hasDisplayDetail() const { return true; }
+   virtual bool hasDisplayDetail() const override { return true; }
    /** */
-   virtual void cleanUp() const;
+   virtual void cleanUp() const override;
 
    static QString typeToString( HeightFieldType t );
    static HeightFieldType stringToType( const QString &str );
 
 protected:
    /** */
-   virtual bool isDefault();
+   virtual bool isDefault() override;
    /** */
-   virtual void createViewStructure();
+   virtual void createViewStructure() override;
    /** */
-   virtual PMViewStructure* defaultViewStructure() const;
+   virtual PMViewStructure* defaultViewStructure() const override;
    /** */
-   virtual int viewStructureParameterKey() const { return s_parameterKey + globalDetailKey(); }
+   virtual int viewStructureParameterKey() const override { return s_parameterKey + globalDetailKey(); }
 
 private:
    /**

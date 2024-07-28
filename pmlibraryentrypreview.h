@@ -75,9 +75,9 @@ signals:
    void objectChanged();
 
 protected:
-   virtual void dragEnterEvent( QDragEnterEvent* event );
+   virtual void dragEnterEvent( QDragEnterEvent* event ) override;
 
-   virtual void dropEvent( QDropEvent* event );
+   virtual void dropEvent( QDropEvent* event ) override;
 
 private slots:
    /** Called when description or keywords are changed */

@@ -56,8 +56,8 @@ public:
   int separatorPos() const;
   void setSeparatorPos( int pos, bool do_resize = true );
 
-  virtual bool eventFilter( QObject *, QEvent * );
-  virtual bool event( QEvent * );
+  virtual bool eventFilter( QObject *, QEvent * ) override;
+  virtual bool event( QEvent * ) override;
 
   QWidget* getFirst() const { return child0; }
   QWidget* getLast() const { return child1; }
@@ -78,7 +78,7 @@ public:
 
 protected:
   int checkValue( int ) const;
-  virtual void resizeEvent(QResizeEvent *);
+  virtual void resizeEvent(QResizeEvent *) override;
 
 private:
   void setupMinMaxSize();
@@ -106,8 +106,8 @@ public:
 
 protected:
   virtual void drawButton( QPainter * );
-  virtual void enterEvent( QEvent * );
-  virtual void leaveEvent( QEvent * );
+  virtual void enterEvent( QEvent * ) override;
+  virtual void leaveEvent( QEvent * ) override;
 
 private:
   bool moveMouse;

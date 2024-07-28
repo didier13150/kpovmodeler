@@ -41,38 +41,38 @@ public:
    ~PMBoundedBy();
 
    /** */
-   virtual PMObject* copy() const { return new PMBoundedBy( *this ); }
+   virtual PMObject* copy() const override { return new PMBoundedBy( *this ); }
 
    /** */
-   virtual QString description() const;
+   virtual QString description() const override;
 
    /** */
-   virtual PMMetaObject* metaObject() const;
+   virtual PMMetaObject* metaObject() const override;
    /** */
-   virtual void cleanUp() const;
+   virtual void cleanUp() const override;
 
    /** */
-   virtual bool dataChangeOnInsertRemove() const { return true; }
+   virtual bool dataChangeOnInsertRemove() const override { return true; }
 
    /** */
-   virtual void serialize( QDomElement& e, QDomDocument& doc ) const;
+   virtual void serialize( QDomElement& e, QDomDocument& doc ) const override;
    /** */
-   virtual void readAttributes( const PMXMLHelper& h );
+   virtual void readAttributes( const PMXMLHelper& h ) override;
 
    /**
     * Returns a new @ref PMBoundedByEdit
     */
-   virtual PMDialogEditBase* editWidget( QWidget* parent ) const;
+   virtual PMDialogEditBase* editWidget( QWidget* parent ) const override;
    /**
     * Returns the name of the pixmap that is displayed in the tree view
     * and dialog view
     */
-   virtual QString pixmap() const { return QString( "pmboundedby" ); }
+   virtual QString pixmap() const override { return QString( "pmboundedby" ); }
 
    /** */
-   virtual void childRemoved( PMObject* );
+   virtual void childRemoved( PMObject* ) override;
    /** */
-   virtual void childAdded( PMObject* );
+   virtual void childAdded( PMObject* ) override;
 
    /**
     * Returns true if the object contains no child objects (exmbumcept comments)

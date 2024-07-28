@@ -129,7 +129,7 @@ protected:
    /**
     * Top level parse function
     */
-   virtual void topParse();
+   virtual void topParse() override;
 
 private:
    /**

@@ -702,7 +702,7 @@ public slots:
    /** */
    virtual void setModified();
    /** */
-   virtual void setModified( bool modified );
+   virtual void setModified( bool modified ) override;
 
    /** Set the scene object. Must be used with extreme care. */
    void setScene( PMScene* scene );
@@ -761,7 +761,7 @@ protected:
    /**
     * reimplemented from @ref KParts::ReadOnlyPart
     */
-   virtual bool saveFile() { return false; } //use saveFileQt
+   virtual bool saveFile() override { return false; } //use saveFileQt
 
    /**
     * Inits all actions

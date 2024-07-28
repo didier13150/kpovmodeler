@@ -96,7 +96,7 @@ public:
 	PMDockMain(QWidget* parent);
 	void setTopWidget(QWidget* top);
 public:
-	virtual void resizeEvent(QResizeEvent *);
+	virtual void resizeEvent(QResizeEvent *) override;
 private:
 	QWidget* m_pTop;
 };
@@ -210,7 +210,7 @@ protected:
 	/**
 	 * Draws the drag panel (a double line)
 	 */
-	virtual void paintEvent( QPaintEvent* );
+	virtual void paintEvent( QPaintEvent* ) override;
 
 private:
 	class PMDockWidgetHeaderDragPrivate;
@@ -247,7 +247,7 @@ public:
 	 *
 	 * @param t toplevel or not
 	 */
-	virtual void setTopLevel( bool t);
+	virtual void setTopLevel( bool t) override;
 
 	/**
 	 * Sets the drag panel of this header.
@@ -562,7 +562,7 @@ public:
 	/**
 	 * Catches and processes some @ref QWidget events that are interesting for dockwidgets.
 	 */
-	virtual bool event( QEvent * );
+	virtual bool event( QEvent * ) override;
 
 	/**
 	 * Add dockwidget management actions to @ref QWidget::show.
@@ -715,7 +715,7 @@ protected:
 	QString tabPageTitle;
 
 protected:
-	virtual void resizeEvent(QResizeEvent *);
+	virtual void resizeEvent(QResizeEvent *) override;
 
 private:
 	/**
@@ -849,7 +849,7 @@ public:
 	 * @param _ the event
 	 * @return the return value of the method call of the base class method
 	 */
-	virtual bool eventFilter( QObject *, QEvent * );
+	virtual bool eventFilter( QObject *, QEvent * ) override;
 
 	/**
 	 * This method finds out what a widgets' dockwidget is. That means the dockmanager has a look at all
@@ -1297,7 +1297,7 @@ protected slots:
 	 * Reimplement if your dock-mainwindow has a complex statusbar
 	 * (with several items)
 	 */
-	virtual void slotSetStatusBarText( const QString & );
+	virtual void slotSetStatusBarText( const QString & ) override;
 
 private:
 	PMDockMainWindowPrivate *d;
@@ -1354,7 +1354,7 @@ protected slots:
    void slotDockWidgetUndocked();
 
 protected:
-	virtual void resizeEvent(QResizeEvent *);
+	virtual void resizeEvent(QResizeEvent *) override;
 
 private:
 	class PMDockMainWindowPrivate;

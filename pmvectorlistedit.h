@@ -127,9 +127,9 @@ public:
    bool isDataValid();
 
    /** */
-   virtual QSize sizeHint() const;
+   virtual QSize sizeHint() const override;
    /** */
-   bool eventFilter( QObject* o, QEvent* e );
+   bool eventFilter( QObject* o, QEvent* e ) override;
 
 protected slots:
    void slotTextChanged( QStandardItem* itm );

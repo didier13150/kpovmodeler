@@ -268,7 +268,7 @@ public:
 
    static void saveConfig();
    static void restoreConfig();
-   virtual QSize sizeHint() const;
+   virtual QSize sizeHint() const override;
 protected:
    /**
     * Sets the help topic

@@ -63,7 +63,7 @@ protected slots:
    void slotClose();
 
 protected:
-   virtual void resizeEvent( QResizeEvent* ev );
+   virtual void resizeEvent( QResizeEvent* ev ) override;
 
 private:
    QTextEdit* m_pTextView;

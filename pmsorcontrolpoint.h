@@ -47,7 +47,7 @@ public:
    virtual ~PMSorControlPoint() { }
    
    /** */
-   virtual PMVector position() const { return to3D( m_point ); }
+   virtual PMVector position() const override { return to3D( m_point ); }
    /**
     * Sets the 2d coordinates of the control point
     */
@@ -67,22 +67,22 @@ public:
     */
    PMSorControlPoint* sorLink() const { return m_pSorLink; }
    /** */
-   virtual void snapToGrid();
+   virtual void snapToGrid() override;
    
    /** */
-   virtual bool hasExtraLine() const;
+   virtual bool hasExtraLine() const override;
    /** */
-   virtual PMVector extraLineStart() const;
+   virtual PMVector extraLineStart() const override;
    /** */
-   virtual PMVector extraLineEnd() const;
+   virtual PMVector extraLineEnd() const override;
 
 protected:
    /** */
-   virtual void graphicalChangeStarted();
+   virtual void graphicalChangeStarted() override;
    /** */
    virtual void graphicalChange( const PMVector& startPoint,
                                  const PMVector& viewNormal,
-                                 const PMVector& endPoint );
+                                 const PMVector& endPoint ) override;
 private:
    PMVector to2D( const PMVector& v ) const;
    PMVector to3D( const PMVector& v ) const;

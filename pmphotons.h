@@ -46,29 +46,29 @@ public:
    virtual ~PMPhotons();
 
    /** */
-   virtual PMObject* copy() const { return new PMPhotons( *this ); }
+   virtual PMObject* copy() const override { return new PMPhotons( *this ); }
    /** */
-   virtual QString description() const;
+   virtual QString description() const override;
 
    /** */
-   virtual PMMetaObject* metaObject() const;
+   virtual PMMetaObject* metaObject() const override;
    /** */
-   virtual void cleanUp() const;
+   virtual void cleanUp() const override;
 
    /** */
-   virtual void serialize( QDomElement& e, QDomDocument& doc ) const;
+   virtual void serialize( QDomElement& e, QDomDocument& doc ) const override;
    /** */
-   virtual void readAttributes( const PMXMLHelper& h );
+   virtual void readAttributes( const PMXMLHelper& h ) override;
 
    /**
     * Returns a new @ref PMPhotonsEdit
     */
-   virtual PMDialogEditBase* editWidget( QWidget* parent ) const;
+   virtual PMDialogEditBase* editWidget( QWidget* parent ) const override;
    /**
     * Returns the name of the pixmap that is displayed in the tree view
     * and dialog view
     */
-   virtual QString pixmap() const { return QString( "pmphotons" ); }
+   virtual QString pixmap() const override { return QString( "pmphotons" ); }
 
    /**
     * Returns the target flag
@@ -134,7 +134,7 @@ public:
    void setAreaLight( bool al );
 
    /** */
-   virtual void restoreMemento( PMMemento* s );
+   virtual void restoreMemento( PMMemento* s ) override;
 
 private:
    /**

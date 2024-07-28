@@ -40,7 +40,7 @@ public:
    virtual ~PMScaleControlPoint() { }
    
    /** */
-   virtual PMVector position() const { return PMVector( 0.0, 0.0, 0.0 ); }
+   virtual PMVector position() const override { return PMVector( 0.0, 0.0, 0.0 ); }
    
    /**
     * Sets the scale
@@ -52,16 +52,16 @@ public:
    PMVector scale() const { return m_scale; }
 
    /** */
-   virtual PMCPDisplayType displayType() const { return CPCross; }
+   virtual PMCPDisplayType displayType() const override { return CPCross; }
    /** */
-   virtual void snapToGrid();
+   virtual void snapToGrid() override;
 protected:
    /** */
-   virtual void graphicalChangeStarted();
+   virtual void graphicalChangeStarted() override;
    /** */
    virtual void graphicalChange( const PMVector& startPoint,
                                  const PMVector& viewNormal,
-                                 const PMVector& endPoint );
+                                 const PMVector& endPoint ) override;
 private:
    PMVector m_scale, m_originalScale;
 };

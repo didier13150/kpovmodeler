@@ -72,7 +72,7 @@ public:
    {
       return ( PMTreeViewItem* ) QTreeWidgetItem::parent();
    }
-   void setSelected( bool select )__attribute__( ( optimize( 0 ) ) );
+   void setSelected( bool select ) __attribute__( ( optimize( 0 ) ) );
    /**
     * Sets the text and pixmap
     */

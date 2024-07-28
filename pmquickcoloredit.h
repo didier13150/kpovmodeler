@@ -43,16 +43,16 @@ public:
    PMQuickColorEdit( QWidget* parent );
 
    /** */
-   virtual void displayObject( PMObject* o );
+   virtual void displayObject( PMObject* o ) override;
 
    /** */
-   virtual bool isDataValid();
+   virtual bool isDataValid() override;
 
 protected:
    /** */
-   virtual void createTopWidgets();
+   virtual void createTopWidgets() override;
    /** */
-   virtual void saveContents();
+   virtual void saveContents() override;
 
 private:
    PMQuickColor* m_pDisplayedObject;

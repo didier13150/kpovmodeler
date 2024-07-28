@@ -46,25 +46,25 @@ public:
    virtual ~PMPovrayMatrix();
 
    /** */
-   virtual PMObject* copy() const { return new PMPovrayMatrix( *this ); }
+   virtual PMObject* copy() const override { return new PMPovrayMatrix( *this ); }
    /** */
-   virtual QString description() const;
+   virtual QString description() const override;
 
    /** */
-   virtual PMMetaObject* metaObject() const;
+   virtual PMMetaObject* metaObject() const override;
    /** */
-   virtual void cleanUp() const;
+   virtual void cleanUp() const override;
 
    /** */
-   virtual void serialize( QDomElement& e, QDomDocument& doc ) const;
+   virtual void serialize( QDomElement& e, QDomDocument& doc ) const override;
    /** */
-   virtual void readAttributes( const PMXMLHelper& h );
+   virtual void readAttributes( const PMXMLHelper& h ) override;
    /**
     * Returns a new @ref PMPovrayMatrixEdit
     */
-   virtual PMDialogEditBase* editWidget( QWidget* parent ) const;
+   virtual PMDialogEditBase* editWidget( QWidget* parent ) const override;
    /** */
-   virtual QString pixmap() const { return QString( "pmmatrix" ); }
+   virtual QString pixmap() const override { return QString( "pmmatrix" ); }
 
    /**
     * Returns the matrix values.
@@ -76,11 +76,11 @@ public:
    void setValues( const PMVector& v );
 
    /** */
-   virtual void restoreMemento( PMMemento* s );
+   virtual void restoreMemento( PMMemento* s ) override;
    /** */
-   virtual bool hasTransformationMatrix() const { return true; }
+   virtual bool hasTransformationMatrix() const override { return true; }
    /** */
-   virtual PMMatrix transformationMatrix() const;
+   virtual PMMatrix transformationMatrix() const override;
 
 private:
    /**

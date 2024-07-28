@@ -46,21 +46,21 @@ public:
    /**
     * Returns true if the property is an enum
     */
-   virtual bool isEnum() const { return true; }
+   virtual bool isEnum() const override { return true; }
    /**
     * Returns the list of enum values
     */
-   virtual QStringList enumValues() const;
+   virtual QStringList enumValues() const override;
 
 protected:
    /**
     * Do not reimplement this method in a sub class
     */
-   virtual bool setProtected( PMObject* obj, const PMVariant& v );
+   virtual bool setProtected( PMObject* obj, const PMVariant& v ) override;
    /**
     * Do not reimplement this method in a sub class
     */
-   virtual PMVariant getProtected( const PMObject* obj );
+   virtual PMVariant getProtected( const PMObject* obj ) override;
 
    /**
     * Reimplement this method in sub classes. You can safetly
@@ -91,12 +91,12 @@ public: \
       m_getFunktion = getFktn; \
    } \
 protected: \
-   virtual void setEnum( PMObject* obj, int value ) \
+   virtual void setEnum( PMObject* obj, int value ) override \
    { \
       ObjectClass* o = static_cast<ObjectClass*>(obj); \
       ( o->*m_setFunktion )( ( EnumType ) value ); \
    } \
-   virtual int getEnum( const PMObject* obj ) \
+   virtual int getEnum( const PMObject* obj ) override \
    { \
       const ObjectClass* o = static_cast<const ObjectClass*>(obj); \
       return ( o->*m_getFunktion )(); \

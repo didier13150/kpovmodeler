@@ -45,12 +45,12 @@ public:
    PMBicubicPatchEdit( QWidget* parent );
 
    /** */
-   virtual void displayObject( PMObject* o );
+   virtual void displayObject( PMObject* o ) override;
    /** */
-   virtual void updateControlPointSelection();
+   virtual void updateControlPointSelection() override;
 
    /** */
-   virtual bool isDataValid();
+   virtual bool isDataValid() override;
 
 protected slots:
    void slotTypeSelected( int i );
@@ -58,9 +58,9 @@ protected slots:
    void slotUVEnabledClicked();
 protected:
    /** */
-   virtual void createTopWidgets();
+   virtual void createTopWidgets() override;
    /** */
-   virtual void saveContents();
+   virtual void saveContents() override;
 
 private:
    QComboBox* m_pType;

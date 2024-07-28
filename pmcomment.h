@@ -59,27 +59,27 @@ public:
    QString text() const { return m_text; }
 
    /** */
-   virtual PMObject* copy() const { return new PMComment( *this ); }
+   virtual PMObject* copy() const override { return new PMComment( *this ); }
 
    /** */
-   virtual PMMetaObject* metaObject() const;
+   virtual PMMetaObject* metaObject() const override;
    /** */
-   virtual void cleanUp() const;
+   virtual void cleanUp() const override;
 
    /** */
-   virtual QString description() const;
+   virtual QString description() const override;
 
    /** */
-   virtual void serialize( QDomElement& e, QDomDocument& doc ) const;
+   virtual void serialize( QDomElement& e, QDomDocument& doc ) const override;
    /** */
-   virtual void readAttributes( const PMXMLHelper& h );
+   virtual void readAttributes( const PMXMLHelper& h ) override;
 
    /** */
-   virtual PMDialogEditBase* editWidget( QWidget* parent ) const;
+   virtual PMDialogEditBase* editWidget( QWidget* parent ) const override;
    /** */
-   virtual QString pixmap() const { return QString( "pmcomment" ); }
+   virtual QString pixmap() const override { return QString( "pmcomment" ); }
    /** */
-   virtual void restoreMemento( PMMemento* s );
+   virtual void restoreMemento( PMMemento* s ) override;
 private:
    /**
     * IDs for @ref PMMementoData

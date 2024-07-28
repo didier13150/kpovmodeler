@@ -38,25 +38,25 @@ public:
    virtual ~PMPovray35Format();
 
    /** */
-   virtual QString name() const { return "povray35"; }
+   virtual QString name() const override { return "povray35"; }
    /** */
-   virtual QString description() const { return "POV-Ray 3.5"; }
+   virtual QString description() const override { return "POV-Ray 3.5"; }
    /** */
-   virtual int services() const { return AllServices; }
+   virtual int services() const override { return AllServices; }
    /** */
-   virtual PMParser* newParser( PMPart*, QIODevice* ) const;
+   virtual PMParser* newParser( PMPart*, QIODevice* ) const override;
    /** */
-   virtual PMParser* newParser( PMPart*, const QByteArray& ) const;
+   virtual PMParser* newParser( PMPart*, const QByteArray& ) const override;
    /** */
-   virtual PMSerializer* newSerializer( QIODevice* );
+   virtual PMSerializer* newSerializer( QIODevice* ) override;
    /** */
-   virtual PMRenderer* newRenderer( PMPart* ) const;
+   virtual PMRenderer* newRenderer( PMPart* ) const override;
    /** */
-   virtual QString mimeType() const;
+   virtual QString mimeType() const override;
    /** */
-   virtual QStringList importPatterns() const;
+   virtual QStringList importPatterns() const override;
    /** */
-   virtual QStringList exportPatterns() const;
+   virtual QStringList exportPatterns() const override;
 };
 
 #endif

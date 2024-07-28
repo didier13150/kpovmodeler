@@ -47,23 +47,23 @@ public:
    virtual ~PMCompositeObject();
 
    /** */
-   virtual PMMetaObject* metaObject() const;
+   virtual PMMetaObject* metaObject() const override;
    /** */
-   virtual void cleanUp() const;
+   virtual void cleanUp() const override;
 
    /**
     * Returns a pointer to the first child.
     */
-   virtual PMObject* firstChild() const { return m_pFirstChild; }
+   virtual PMObject* firstChild() const override { return m_pFirstChild; }
    /**
     * Returns a pointer to the last child.
     */
-   virtual PMObject* lastChild() const { return m_pLastChild; }
+   virtual PMObject* lastChild() const override { return m_pLastChild; }
    /**
     * Returns a pointer to the child object at position index,
     * or null if the index is out of range.
     */
-   virtual PMObject* childAt( uint index ) const;
+   virtual PMObject* childAt( uint index ) const override;
 
 
 
@@ -72,56 +72,56 @@ public:
    /**
     * Returns true if the object contains the child object o
     */
-   virtual bool containsChild( PMObject* o ) const
+   virtual bool containsChild( PMObject* o ) const override
    { return ( ( PMObject* )this == o->parent() ); }
    /**
     * Returns the index of the object or -1 if not found
     */
-   virtual int findChild( PMObject* o );
+   virtual int findChild( PMObject* o ) override;
 
    /**
     * Inserts the object as child at index i.
     * If i is -1, the object is appended.
     * Returns true if successful.
     */
-   virtual bool insertChild( PMObject* o, int i );
+   virtual bool insertChild( PMObject* o, int i ) override;
    /**
     * Inserts the object as child after the child object after
     */
-   virtual bool insertChildAfter( PMObject* object, PMObject* after );
+   virtual bool insertChildAfter( PMObject* object, PMObject* after ) override;
    /**
     * Inserts the object as child before the child object before
     */
-   virtual bool insertChildBefore( PMObject* object, PMObject* before );
+   virtual bool insertChildBefore( PMObject* object, PMObject* before ) override;
    /**
     * Appends the object as child. Returns true if successful.
     */
-   virtual bool appendChild( PMObject* );
+   virtual bool appendChild( PMObject* ) override;
    /**
     * Returns the number of children.
     */
-   virtual int countChildren() const;
+   virtual int countChildren() const override;
    /**
     * Removes a child object. Does not delete it!
     * Returns true if successful.*/
-   virtual bool takeChild( PMObject* o );
+   virtual bool takeChild( PMObject* o ) override;
    /**
     * Removes a child object at index i. Does not delete it!
     */
-   virtual bool takeChild( uint i );
+   virtual bool takeChild( uint i ) override;
 
    /** */
-   virtual void serialize( QDomElement& e, QDomDocument& doc ) const;
+   virtual void serialize( QDomElement& e, QDomDocument& doc ) const override;
 
    /**
     * Returns the number of selected child items. All selected items in
     * any depth are counted
     */
-   virtual int selectedChildren() const { return m_selectedChildren; }
+   virtual int selectedChildren() const override { return m_selectedChildren; }
    /**
     * Deselects recursively all child objects
     */
-   virtual void deselectChildren();
+   virtual void deselectChildren() override;
 
    /**
     * Returns the view structure of the object.
@@ -133,13 +133,13 @@ public:
     * If the default view structure can't be used, this function calls
     * createViewStructure, which has to create a non default view structure.
     */
-   virtual PMViewStructure* viewStructure();
+   virtual PMViewStructure* viewStructure() override;
 protected:
    /**
     * Adds num to the number of selected objects in this object and all
     * parent objects. num can be negative.
     */
-   virtual void adjustSelectedChildren( int num );
+   virtual void adjustSelectedChildren( int num ) override;
 
    /**
     * Returns the default view structure for the object. This view

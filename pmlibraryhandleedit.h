@@ -53,7 +53,7 @@ private slots:
    void slotEditsChanged( const QString& );
    void slotDescriptionChanged();
    void slotReadOnlyChanged();
-   void resizeEvent( QResizeEvent *ev );
+   void resizeEvent( QResizeEvent *ev ) override;
 
 private:
    PMLibraryHandle* m_pLibrary;

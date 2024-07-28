@@ -45,26 +45,26 @@ public:
    virtual ~PMTexture();
 
    /** */
-   virtual PMObject* copy() const { return new PMTexture( *this ); }
+   virtual PMObject* copy() const override { return new PMTexture( *this ); }
    /** */
-   virtual QString description() const;
+   virtual QString description() const override;
 
    /** */
-   virtual PMMetaObject* metaObject() const;
+   virtual PMMetaObject* metaObject() const override;
    /** */
-   virtual void cleanUp() const;
+   virtual void cleanUp() const override;
 
    /** */
-   virtual void serialize( QDomElement& e, QDomDocument& doc ) const;
+   virtual void serialize( QDomElement& e, QDomDocument& doc ) const override;
    /** */
-   virtual void readAttributes( const PMXMLHelper& h );
+   virtual void readAttributes( const PMXMLHelper& h ) override;
 
    /**
     * Returns a new @ref PMTextureEdit
     */
-   virtual PMDialogEditBase* editWidget( QWidget* parent ) const;
+   virtual PMDialogEditBase* editWidget( QWidget* parent ) const override;
    /** */
-   virtual QString pixmap() const { return QString( "pmtexture" ); }
+   virtual QString pixmap() const override { return QString( "pmtexture" ); }
 
    /**
     * Returns the uv mapping flag
@@ -76,7 +76,7 @@ public:
    void setUVMapping( bool m );
 
    /** */
-   virtual void restoreMemento( PMMemento *s );
+   virtual void restoreMemento( PMMemento *s ) override;
 
 private:
    /**

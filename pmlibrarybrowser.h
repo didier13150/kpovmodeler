@@ -52,9 +52,9 @@ public:
    PMLibraryBrowserView( PMPart* part, QWidget* parent );
 
    /** */
-   virtual QString viewType() const { return QString( "librarybrowserview" ); }
+   virtual QString viewType() const override { return QString( "librarybrowserview" ); }
    /** */
-   virtual QString description() const;
+   virtual QString description() const override;
 };
 
 /**
@@ -67,7 +67,7 @@ public:
    PMLibraryBrowserViewWidget( QWidget *parent );
 
 private slots:
-   void resizeEvent( QResizeEvent* ev );
+   void resizeEvent( QResizeEvent* ev ) override;
    void slotPathSelected( const QString& str );
    void slotSelectionChanged( QListWidgetItem *item );
    void slotSelectionExecuted( QListWidgetItem *item );
@@ -105,11 +105,11 @@ class PMLibraryBrowserViewFactory : public PMViewTypeFactory
 {
 public:
    PMLibraryBrowserViewFactory() { }
-   virtual QString viewType() const { return QString( "librarybrowserview" ); }
+   virtual QString viewType() const override { return QString( "librarybrowserview" ); }
    using PMViewTypeFactory::description;
-   virtual QString description() const;
-   virtual QString iconName() const { return QString( "pmlibrarybrowserview" ); }
-   virtual PMViewBase* newInstance( QWidget* parent, PMPart* part ) const
+   virtual QString description() const override;
+   virtual QString iconName() const override { return QString( "pmlibrarybrowserview" ); }
+   virtual PMViewBase* newInstance( QWidget* parent, PMPart* part ) const override
    {
       return new PMLibraryBrowserView( part, parent );
    }

@@ -74,13 +74,13 @@ public:
    ~PMGLView();
 
    /** */
-   virtual QString viewType() const { return QString( "glview" ); }
+   virtual QString viewType() const override { return QString( "glview" ); }
    /** */
-   virtual QString description() const;
+   virtual QString description() const override;
    /** */
-   virtual void restoreViewConfig( PMViewOptions* );
+   virtual void restoreViewConfig( PMViewOptions* ) override;
    /** */
-   virtual void saveViewConfig( PMViewOptions* ) const;
+   virtual void saveViewConfig( PMViewOptions* ) const override;
 
    /**
     * Enables/disables translating the view with the mouse
@@ -288,21 +288,21 @@ signals:
 
 protected:
    /** */
-   virtual void resizeEvent( QResizeEvent* e );
+   virtual void resizeEvent( QResizeEvent* e ) override;
    /** */
-   virtual void paintEvent( QPaintEvent* e );
+   virtual void paintEvent( QPaintEvent* e ) override;
    /** */
-   virtual void mousePressEvent( QMouseEvent* e );
+   virtual void mousePressEvent( QMouseEvent* e ) override;
    /** */
-   virtual void mouseReleaseEvent( QMouseEvent* e );
+   virtual void mouseReleaseEvent( QMouseEvent* e ) override;
    /** */
-   virtual void mouseMoveEvent( QMouseEvent* e );
+   virtual void mouseMoveEvent( QMouseEvent* e ) override;
    /** */
-   virtual void keyPressEvent( QKeyEvent* e );
+   virtual void keyPressEvent( QKeyEvent* e ) override;
    /**
     * Event to zoom in / zoom out the viewport by mouse wheel
     */
-   virtual void wheelEvent( QWheelEvent* e );
+   virtual void wheelEvent( QWheelEvent* e ) override;
 
 private:
 
@@ -528,12 +528,12 @@ public:
    {
       m_glViewType = t;
    }
-   virtual PMViewOptions* copy() const { return new PMGLViewOptions( *this ); }
-   virtual QString viewType() const { return QString( "glview" ); }
+   virtual PMViewOptions* copy() const override { return new PMGLViewOptions( *this ); }
+   virtual QString viewType() const override { return QString( "glview" ); }
    PMGLView::PMViewType glViewType() const { return m_glViewType; }
    void setGLViewType( PMGLView::PMViewType t ) { m_glViewType = t; }
-   virtual void loadData( QDomElement& e );
-   virtual void saveData( QDomElement& e );
+   virtual void loadData( QDomElement& e ) override;
+   virtual void saveData( QDomElement& e ) override;
 
 private:
    PMGLView::PMViewType m_glViewType;
@@ -546,16 +546,16 @@ class PMGLViewFactory : public PMViewTypeFactory
 {
 public:
    PMGLViewFactory() { }
-   virtual QString viewType() const { return QString( "glview" ); }
-   virtual QString description() const;
-   virtual QString description( PMViewOptions* ) const;
-   virtual QString iconName() const { return QString( "pmglview" ); }
-   virtual PMViewBase* newInstance( QWidget* parent, PMPart* part ) const
+   virtual QString viewType() const override { return QString( "glview" ); }
+   virtual QString description() const override;
+   virtual QString description( PMViewOptions* ) const override;
+   virtual QString iconName() const override { return QString( "pmglview" ); }
+   virtual PMViewBase* newInstance( QWidget* parent, PMPart* part ) const override
    {
       return new PMGLView( part, PMGLView::PMViewPosX, parent );
    }
-   virtual PMViewOptions* newOptionsInstance() const;
-   virtual PMViewOptionsWidget* newOptionsWidget( QWidget*, PMViewOptions* );
+   virtual PMViewOptions* newOptionsInstance() const override;
+   virtual PMViewOptionsWidget* newOptionsWidget( QWidget*, PMViewOptions* ) override;
 };
 
 /**

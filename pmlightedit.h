@@ -49,10 +49,10 @@ public:
    PMLightEdit( QWidget* parent );
 
    /** */
-   virtual void displayObject( PMObject* o );
+   virtual void displayObject( PMObject* o ) override;
 
    /** */
-   virtual bool isDataValid();
+   virtual bool isDataValid() override;
 public slots:
    void slotTypeActivated( int index );
    void slotAreaClicked();
@@ -60,9 +60,9 @@ public slots:
    void slotFadingClicked();
 protected:
    /** */
-   virtual void createTopWidgets();
+   virtual void createTopWidgets() override;
    /** */
-   virtual void saveContents();
+   virtual void saveContents() override;
 
 private:
    /**

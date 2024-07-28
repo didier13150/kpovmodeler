@@ -41,13 +41,13 @@ public:
    PMPigmentEdit( QWidget* parent );
 
    /** */
-   virtual void displayObject( PMObject* o );
+   virtual void displayObject( PMObject* o ) override;
 
 protected:
    /** */
-   virtual void createTopWidgets();
+   virtual void createTopWidgets() override;
    /** */
-   virtual void saveContents();
+   virtual void saveContents() override;
 
 private:
    PMPigment* m_pDisplayedObject;

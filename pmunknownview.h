@@ -35,9 +35,9 @@ public:
    PMUnknownView( const QString& viewType, QWidget* parent
                   );
    /** */
-   virtual QString viewType() const { return m_viewType; }
+   virtual QString viewType() const override { return m_viewType; }
    /** */
-   virtual QString description() const;
+   virtual QString description() const override;
 private:
    QString m_viewType;
 };

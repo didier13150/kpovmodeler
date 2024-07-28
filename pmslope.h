@@ -46,29 +46,29 @@ public:
    virtual ~PMSlope();
 
    /** */
-   virtual PMObject* copy() const { return new PMSlope( *this ); }
+   virtual PMObject* copy() const override { return new PMSlope( *this ); }
    /** */
-   virtual QString description() const;
+   virtual QString description() const override;
 
    /** */
-   virtual PMMetaObject* metaObject() const;
+   virtual PMMetaObject* metaObject() const override;
    /** */
-   virtual void cleanUp() const;
+   virtual void cleanUp() const override;
 
    /** */
-   virtual void serialize( QDomElement& e, QDomDocument& doc ) const;
+   virtual void serialize( QDomElement& e, QDomDocument& doc ) const override;
    /** */
-   virtual void readAttributes( const PMXMLHelper& h );
+   virtual void readAttributes( const PMXMLHelper& h ) override;
 
    /**
     * Returns a new @ref PMSlopeEdit
     */
-   virtual PMDialogEditBase* editWidget( QWidget* parent ) const;
+   virtual PMDialogEditBase* editWidget( QWidget* parent ) const override;
    /**
     * Returns the name of the pixmap that is displayed in the tree view
     * and dialog view
     */
-   virtual QString pixmap() const { return QString( "pmslope" ); }
+   virtual QString pixmap() const override { return QString( "pmslope" ); }
 
    double height() const { return m_height; }
    void setHeight( double c );
@@ -76,7 +76,7 @@ public:
    void setSlope( double c );
 
    /** */
-   virtual void restoreMemento( PMMemento* s );
+   virtual void restoreMemento( PMMemento* s ) override;
 private:
    /**
     * IDs for @ref PMMementoData

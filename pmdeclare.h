@@ -45,33 +45,33 @@ public:
    ~PMDeclare();
 
    /** */
-   virtual PMObject* copy() const { return new PMDeclare( *this ); }
+   virtual PMObject* copy() const override { return new PMDeclare( *this ); }
 
    /** */
-   virtual QString description() const;
+   virtual QString description() const override;
    /** */
-   virtual QString pixmap() const;
+   virtual QString pixmap() const override;
 
    /** */
-   virtual PMMetaObject* metaObject() const;
+   virtual PMMetaObject* metaObject() const override;
    /** */
-   virtual void cleanUp() const;
+   virtual void cleanUp() const override;
 
    /** */
-   virtual bool dataChangeOnInsertRemove() const { return true; }
+   virtual bool dataChangeOnInsertRemove() const override { return true; }
    /** */
-   virtual void serialize( QDomElement& e, QDomDocument& doc ) const;
+   virtual void serialize( QDomElement& e, QDomDocument& doc ) const override;
    /** */
-   virtual void readAttributes( const PMXMLHelper& h );
+   virtual void readAttributes( const PMXMLHelper& h ) override;
 
    /**
     * Returns a new @ref PMDeclareEdit
     */
-   virtual PMDialogEditBase* editWidget( QWidget* parent ) const;
+   virtual PMDialogEditBase* editWidget( QWidget* parent ) const override;
    /**
     * Returns the id of the declare
     */
-   virtual QString name() const { return m_id; }
+   virtual QString name() const override { return m_id; }
    /**
     * Returns the id of the declare
     */
@@ -94,10 +94,10 @@ public:
     */
    void setID( const QString& id );
    /** */
-   virtual bool canHaveName() const { return true; }
+   virtual bool canHaveName() const override { return true; }
 
    /** */
-   virtual void restoreMemento( PMMemento* s );
+   virtual void restoreMemento( PMMemento* s ) override;
    /**
     * Returns an iterator to the list of objects, that are linked to that
     * declare
@@ -116,9 +116,9 @@ public:
    void removeLinkedObject( PMObject* o );
 
    /** */
-   virtual void childAdded( PMObject* o );
+   virtual void childAdded( PMObject* o ) override;
    /** */
-   virtual void childRemoved( PMObject* o );
+   virtual void childRemoved( PMObject* o ) override;
 
 private:
    /**

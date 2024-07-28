@@ -49,11 +49,11 @@ protected:
    /**
     * Executes the command
     */
-   virtual void execute( PMCommandManager* theManager );
+   virtual void execute( PMCommandManager* theManager ) override;
    /**
     * Undo the command
     */
-   virtual void undo( PMCommandManager* theManager );
+   virtual void undo( PMCommandManager* theManager ) override;
    
 private:
    void signalChanges( PMCommandManager* theManager, PMMemento* memento );

@@ -46,26 +46,26 @@ public:
    {
       m_index = 0;
    }
-   virtual int dimensions() const { return 1; }
-   virtual void setIndex( int /*dimension*/, int index )
+   virtual int dimensions() const override { return 1; }
+   virtual void setIndex( int /*dimension*/, int index ) override
    {
       if( index < 0 || index > 2 )
          qCritical(  ) << "Illegal index in PMTriangle::PointProperty::setIndex" << endl;
       else
          m_index = index;
    }
-   virtual int size( PMObject* /*object*/, int /*dimension*/ ) const
+   virtual int size( PMObject* /*object*/, int /*dimension*/ ) const override
    {
       return 3;
    }
 protected:
-   virtual bool setProtected( PMObject* obj, const PMVariant& v )
+   virtual bool setProtected( PMObject* obj, const PMVariant& v ) override
    {
       PMTriangle* p = ( PMTriangle* ) obj;
       p->setPoint( m_index, v.vectorData() );
       return true;
    }
-   virtual PMVariant getProtected( const PMObject* obj )
+   virtual PMVariant getProtected( const PMObject* obj ) override
    {
       const PMTriangle* p = ( const PMTriangle* ) obj;
       return PMVariant( p->point( m_index ) );
@@ -82,26 +82,26 @@ public:
    {
       m_index = 0;
    }
-   virtual int dimensions() const { return 1; }
-   virtual void setIndex( int /*dimension*/, int index )
+   virtual int dimensions() const override { return 1; }
+   virtual void setIndex( int /*dimension*/, int index ) override
    {
       if( index < 0 || index > 2 )
          qCritical(  ) << "Illegal index in PMTriangle::NormalProperty::setIndex" << endl;
       else
          m_index = index;
    }
-   virtual int size( PMObject* /*object*/, int /*dimension*/ ) const
+   virtual int size( PMObject* /*object*/, int /*dimension*/ ) const override
    {
       return 3;
    }
 protected:
-   virtual bool setProtected( PMObject* obj, const PMVariant& v )
+   virtual bool setProtected( PMObject* obj, const PMVariant& v ) override
    {
       PMTriangle* p = ( PMTriangle* ) obj;
       p->setNormal( m_index, v.vectorData() );
       return true;
    }
-   virtual PMVariant getProtected( const PMObject* obj )
+   virtual PMVariant getProtected( const PMObject* obj ) override
    {
       const PMTriangle* p = ( const PMTriangle* ) obj;
       return PMVariant( p->normal( m_index ) );
@@ -119,26 +119,26 @@ public:
    {
       m_index = 0;
    }
-   virtual int dimensions() const { return 1; }
-   virtual void setIndex( int /*dimension*/, int index )
+   virtual int dimensions() const override { return 1; }
+   virtual void setIndex( int /*dimension*/, int index ) override
    {
       if( index < 0 || index > 2 )
          qCritical(  ) << "Illegal index in PMTriangle::UVVectorProperty::setIndex" << endl;
       else
          m_index = index;
    }
-   virtual int size( PMObject* /*object*/, int /*dimension*/ ) const
+   virtual int size( PMObject* /*object*/, int /*dimension*/ ) const override
    {
       return 2;
    }
 protected:
-   virtual bool setProtected( PMObject* obj, const PMVariant& v )
+   virtual bool setProtected( PMObject* obj, const PMVariant& v ) override
    {
       PMTriangle* p = ( PMTriangle* ) obj;
       p->setUVVector( m_index, v.vectorData() );
       return true;
    }
-   virtual PMVariant getProtected( const PMObject* obj )
+   virtual PMVariant getProtected( const PMObject* obj ) override
    {
       const PMTriangle* p = ( const PMTriangle* ) obj;
       return PMVariant( p->uvVector( m_index ) );

@@ -51,25 +51,25 @@ public:
     virtual ~PMDisc();
 
    /** */
-   virtual PMObject* copy() const { return new PMDisc( *this ); }
+   virtual PMObject* copy() const override { return new PMDisc( *this ); }
 
    /** */
-   virtual QString description() const;
+   virtual QString description() const override;
    /** */
-   virtual PMMetaObject* metaObject() const;
+   virtual PMMetaObject* metaObject() const override;
 
    /** */
-   virtual void serialize( QDomElement& e, QDomDocument& doc ) const;
+   virtual void serialize( QDomElement& e, QDomDocument& doc ) const override;
    /** */
-   virtual void readAttributes( const PMXMLHelper& h );
+   virtual void readAttributes( const PMXMLHelper& h ) override;
    /**
     * Returns a new @ref PMDiscEdit
     */
-   virtual PMDialogEditBase* editWidget( QWidget* parent ) const;
+   virtual PMDialogEditBase* editWidget( QWidget* parent ) const override;
    /**
     * Returns the name of the pixmap that is displayed in the tree view and dialog view
     */
-   virtual QString pixmap() const { return QString( "pmdisc" ); }
+   virtual QString pixmap() const override { return QString( "pmdisc" ); }
 
    /**
     * Return the center
@@ -105,13 +105,13 @@ public:
    void setHoleRadius( double hradius );
 
    /** */
-   virtual void restoreMemento( PMMemento* s );
+   virtual void restoreMemento( PMMemento* s ) override;
    /** */
-   virtual void controlPoints( PMControlPointList& list );
+   virtual void controlPoints( PMControlPointList& list ) override;
    /** */
-   virtual void controlPointsChanged( PMControlPointList& list );
+   virtual void controlPointsChanged( PMControlPointList& list ) override;
    /** */
-   virtual bool hasDisplayDetail() const { return true; }
+   virtual bool hasDisplayDetail() const override { return true; }
 
    /**
     * Returns the number of lines for rendering
@@ -122,17 +122,17 @@ public:
     */
    static void setSteps( int s );
    /** */
-   virtual void cleanUp() const;
+   virtual void cleanUp() const override;
 
 protected:
    /** */
-   virtual bool isDefault();
+   virtual bool isDefault() override;
    /** */
-   virtual void createViewStructure();
+   virtual void createViewStructure() override;
    /** */
-   virtual PMViewStructure* defaultViewStructure() const;
+   virtual PMViewStructure* defaultViewStructure() const override;
    /** */
-   virtual int viewStructureParameterKey() const { return s_parameterKey+ globalDetailKey(); }
+   virtual int viewStructureParameterKey() const override { return s_parameterKey+ globalDetailKey(); }
 
 private:
    /**

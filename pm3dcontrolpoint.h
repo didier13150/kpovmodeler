@@ -40,7 +40,7 @@ public:
    virtual ~PM3DControlPoint() { }
    
    /** */
-   virtual PMVector position() const { return m_point; }
+   virtual PMVector position() const override { return m_point; }
    /**
     * Sets the 3d coordinates of the control point
     */
@@ -50,15 +50,15 @@ public:
     */
    PMVector point() const { return m_point; }
    /** */
-   virtual void snapToGrid();
+   virtual void snapToGrid() override;
 
 protected:
    /** */
-   virtual void graphicalChangeStarted();
+   virtual void graphicalChangeStarted() override;
    /** */
    virtual void graphicalChange( const PMVector& startPoint,
                                  const PMVector& viewNormal,
-                                 const PMVector& endPoint );
+                                 const PMVector& endPoint ) override;
 private:
    PMVector m_point, m_originalPoint;
 };

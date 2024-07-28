@@ -49,14 +49,14 @@ public:
    virtual ~PMGraphicalObject();
 
    /** */
-   virtual PMMetaObject* metaObject() const;
+   virtual PMMetaObject* metaObject() const override;
    /** */
-   virtual void cleanUp() const;
+   virtual void cleanUp() const override;
 
    /** */
-   virtual void serialize( QDomElement& e, QDomDocument& doc ) const;
+   virtual void serialize( QDomElement& e, QDomDocument& doc ) const override;
    /** */
-   virtual void readAttributes( const PMXMLHelper& h );
+   virtual void readAttributes( const PMXMLHelper& h ) override;
 
    /**
     * Returns the state of the no_shadow flag.
@@ -109,14 +109,14 @@ public:
    /**
     * Returns the export flag
     */
-   virtual bool exportPovray() const { return m_export; }
+   virtual bool exportPovray() const override { return m_export; }
    /**
     * Sets the export flag
     */
    void setExportPovray( bool ex );
 
    /** */
-   virtual void restoreMemento( PMMemento* s );
+   virtual void restoreMemento( PMMemento* s ) override;
 private:
    /**
     * IDs for @ref PMMementoData

@@ -40,13 +40,13 @@ public:
     */
    PMObjectLibrarySettings( QWidget* parent = 0 );
    /** */
-   virtual void displaySettings();
+   virtual void displaySettings() override;
    /** */
-   virtual void applySettings();
+   virtual void applySettings() override;
    /** */
-   virtual bool validateData();
+   virtual bool validateData() override;
    /** */
-   virtual void displayDefaults();
+   virtual void displayDefaults() override;
 protected slots:
    /** Called when the object library create button is clicked */
    void slotCreateObjectLibrary();

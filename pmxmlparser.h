@@ -46,16 +46,16 @@ public:
     * Quickly scans the top level objects. Appends all top level object
     * types to the list.
     */
-   virtual void quickParse( QStringList& list );
+   virtual void quickParse( QStringList& list ) override;
    /**
     * Returns true, if the parser can quickly scan the top level objects.
     */
-   virtual bool canQuickParse() const { return true; }
+   virtual bool canQuickParse() const override { return true; }
 protected:
    /**
     * Top level parse function
     */
-   virtual void topParse();
+   virtual void topParse() override;
    
 private:
    /**

@@ -45,7 +45,7 @@ public:
    virtual ~PMPlaneNormalControlPoint() { }
    
    /** */
-   virtual PMVector position() const;
+   virtual PMVector position() const override;
    
    /**
     * Sets the normal vector
@@ -61,26 +61,26 @@ public:
    double distance() const;
 
    /** */
-   virtual bool hasExtraLine() const { return true; }
+   virtual bool hasExtraLine() const override { return true; }
    /**
     * Returns the start point of the extra line
     */
-   virtual PMVector extraLineStart() const;
+   virtual PMVector extraLineStart() const override;
    /**
     * Returns the end point of the extra line
     */
-   virtual PMVector extraLineEnd() const;
+   virtual PMVector extraLineEnd() const override;
 
    /** */
-   virtual void snapToGrid();
+   virtual void snapToGrid() override;
    
 protected:
    /** */
-   virtual void graphicalChangeStarted();
+   virtual void graphicalChangeStarted() override;
    /** */
    virtual void graphicalChange( const PMVector& startPoint,
                                  const PMVector& viewNormal,
-                                 const PMVector& endPoint );
+                                 const PMVector& endPoint ) override;
 private:
    PMVector m_normal, m_originalNormal;
    double m_originalDistance;

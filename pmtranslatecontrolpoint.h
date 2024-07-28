@@ -40,7 +40,7 @@ public:
    virtual ~PMTranslateControlPoint() { }
    
    /** */
-   virtual PMVector position() const { return m_translation; }
+   virtual PMVector position() const override { return m_translation; }
    
    /**
     * Sets the translation
@@ -52,16 +52,16 @@ public:
    PMVector translation() const { return m_translation; }
 
    /** */
-   virtual PMCPDisplayType displayType() const { return CPCross; }
+   virtual PMCPDisplayType displayType() const override { return CPCross; }
    /** */
-   virtual void snapToGrid();
+   virtual void snapToGrid() override;
 protected:
    /** */
-   virtual void graphicalChangeStarted();
+   virtual void graphicalChangeStarted() override;
    /** */
    virtual void graphicalChange( const PMVector& startPoint,
                                  const PMVector& viewNormal,
-                                 const PMVector& endPoint );
+                                 const PMVector& endPoint ) override;
 private:
    PMVector m_translation, m_originalTranslation;
 };

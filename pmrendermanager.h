@@ -252,7 +252,7 @@ signals:
    void renderingFinished();
    
 protected:
-   virtual void timerEvent( QTimerEvent* );
+   virtual void timerEvent( QTimerEvent* ) override;
    
 private:
    /**

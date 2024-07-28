@@ -46,7 +46,7 @@ public:
    virtual ~PM2DControlPoint() { }
    
    /** */
-   virtual PMVector position() const { return to3D( m_point ); }
+   virtual PMVector position() const override { return to3D( m_point ); }
    /**
     * Sets the 2d coordinates of the control point
     */
@@ -56,7 +56,7 @@ public:
     */
    PMVector point() const { return m_point; }
    /** */
-   virtual void snapToGrid();
+   virtual void snapToGrid() override;
    /**
     * Returns the third coordinate
     */
@@ -97,11 +97,11 @@ public:
    PM2DControlPoint* latheLink() const { return m_pLatheLink; }
 
    /** */
-   virtual bool hasExtraLine() const { return m_pBasePoint; }
+   virtual bool hasExtraLine() const override { return m_pBasePoint; }
    /** */
-   virtual PMVector extraLineStart() const { return position(); }
+   virtual PMVector extraLineStart() const override { return position(); }
    /** */
-   virtual PMVector extraLineEnd() const
+   virtual PMVector extraLineEnd() const override
    {
       if( m_pBasePoint )
          return m_pBasePoint->position();
@@ -110,11 +110,11 @@ public:
 
 protected:
    /** */
-   virtual void graphicalChangeStarted();
+   virtual void graphicalChangeStarted() override;
    /** */
    virtual void graphicalChange( const PMVector& startPoint,
                                  const PMVector& viewNormal,
-                                 const PMVector& endPoint );
+                                 const PMVector& endPoint ) override;
 private:
    PMVector to2D( const PMVector& v ) const;
    PMVector to3D( const PMVector& v ) const;

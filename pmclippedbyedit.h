@@ -43,11 +43,11 @@ public:
    PMClippedByEdit( QWidget* parent );
 
    /** */
-   virtual void displayObject( PMObject* o );
+   virtual void displayObject( PMObject* o ) override;
 
 protected:
    /** */
-   virtual void createTopWidgets();
+   virtual void createTopWidgets() override;
    
 private:
    PMClippedBy* m_pDisplayedObject;

@@ -53,7 +53,7 @@ public:
    virtual ~PMDistanceControlPoint() { }
    
    /** */
-   virtual PMVector position() const;
+   virtual PMVector position() const override;
    
    /**
     * Sets the distance
@@ -77,25 +77,25 @@ public:
    PMVector basePoint() const;
    
    /** */
-   virtual bool hasExtraLine() const { return m_extraLine; }
+   virtual bool hasExtraLine() const override { return m_extraLine; }
    /**
     * Returns the start point of the extra line
     */
-   virtual PMVector extraLineStart() const { return basePoint(); }
+   virtual PMVector extraLineStart() const override { return basePoint(); }
    /**
     * Returns the end point of the extra line
     */
-   virtual PMVector extraLineEnd() const { return position(); }
+   virtual PMVector extraLineEnd() const override { return position(); }
 
    /** */
-   virtual void snapToGrid();
+   virtual void snapToGrid() override;
 protected:
    /** */
-   virtual void graphicalChangeStarted();
+   virtual void graphicalChangeStarted() override;
    /** */
    virtual void graphicalChange( const PMVector& startPoint,
                                  const PMVector& viewNormal,
-                                 const PMVector& endPoint );
+                                 const PMVector& endPoint ) override;
 private:
    double m_distance, m_originalDistance;
    PMControlPoint* m_pBasePoint;

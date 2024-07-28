@@ -85,9 +85,9 @@ public:
     */
    static void setPovrayLibraryPaths( const QStringList& slist )
    { s_libraryPaths = slist; }
-   virtual QSize sizeHint() const;
+   virtual QSize sizeHint() const override;
 
-   virtual void startDrag();
+   virtual void startDrag() override;
    
 signals:
    /**
@@ -144,7 +144,7 @@ protected slots:
    void slotRenderingFinished();
    
 protected:
-   virtual void paintEvent( QPaintEvent* );
+   virtual void paintEvent( QPaintEvent* ) override;
       
 private:
    void setPixel( int x, int y, uint c );

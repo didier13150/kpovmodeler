@@ -54,11 +54,11 @@ public:
    virtual ~PMOutputDevice();
 
    /** */
-   virtual QString description() const;
+   virtual QString description() const override;
    /** */
-   virtual void serialize( PMObject* o );
+   virtual void serialize( PMObject* o ) override;
    /** */
-   virtual void close();
+   virtual void close() override;
 
    /**
     * Writes the povray object type, an open bracket to the text stream

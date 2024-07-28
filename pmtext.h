@@ -48,28 +48,28 @@ public:
    virtual ~PMText();
 
    /** */
-   virtual PMObject* copy() const { return new PMText( *this ); }
+   virtual PMObject* copy() const override { return new PMText( *this ); }
    /** */
-   virtual QString description() const;
+   virtual QString description() const override;
 
    /** */
-   virtual PMMetaObject* metaObject() const;
+   virtual PMMetaObject* metaObject() const override;
    /** */
-   virtual void cleanUp() const;
+   virtual void cleanUp() const override;
 
    /** */
-   virtual void serialize( QDomElement& e, QDomDocument& doc ) const;
+   virtual void serialize( QDomElement& e, QDomDocument& doc ) const override;
    /** */
-   virtual void readAttributes( const PMXMLHelper& h );
+   virtual void readAttributes( const PMXMLHelper& h ) override;
    /**
     * Returns a new @ref PMTextEdit
     */
-   virtual PMDialogEditBase* editWidget( QWidget* parent ) const;
+   virtual PMDialogEditBase* editWidget( QWidget* parent ) const override;
    /**
     * Returns the name of the pixmap that is displayed in the tree view
     * and dialog view
     */
-   virtual QString pixmap() const { return QString( "pmtext" ); }
+   virtual QString pixmap() const override { return QString( "pmtext" ); }
 
    /**
     * Returns the font file
@@ -105,7 +105,7 @@ public:
    void setOffset( const PMVector& o );
 
    /** */
-   virtual void restoreMemento( PMMemento* s );
+   virtual void restoreMemento( PMMemento* s ) override;
 
    /**
     * Call this if the povray library paths have changed
@@ -122,9 +122,9 @@ public:
 
 protected:
    /** */
-   virtual void createViewStructure();
+   virtual void createViewStructure() override;
    /** */
-   virtual int viewStructureParameterKey() const { return s_parameterKey; }
+   virtual int viewStructureParameterKey() const override { return s_parameterKey; }
 
 private:
    /**

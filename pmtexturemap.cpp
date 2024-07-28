@@ -35,17 +35,17 @@ public:
    {
       m_index = 0;
    }
-   virtual int dimensions() const { return 1; }
-   virtual void setIndex( int /*dimension*/, int index )
+   virtual int dimensions() const override { return 1; }
+   virtual void setIndex( int /*dimension*/, int index ) override
    {
       m_index = index;
    }
-   virtual int size( PMObject* object, int /*dimension*/ ) const
+   virtual int size( PMObject* object, int /*dimension*/ ) const override
    {
       return ( ( PMTextureMapBase* ) object )->mapEntries();
    }
 protected:
-   virtual bool setProtected( PMObject* obj, const PMVariant& var )
+   virtual bool setProtected( PMObject* obj, const PMVariant& var ) override
    {
       PMTextureMapBase* m = ( PMTextureMapBase* ) obj;
       QList<double> list = m->mapValues();
@@ -61,7 +61,7 @@ protected:
       m->setMapValues( list );
       return true;
    }
-   virtual PMVariant getProtected( const PMObject* obj )
+   virtual PMVariant getProtected( const PMObject* obj ) override
    {
       PMTextureMapBase* m = ( PMTextureMapBase* ) obj;
       QList<double> list = m->mapValues();

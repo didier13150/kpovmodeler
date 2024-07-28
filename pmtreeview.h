@@ -52,9 +52,9 @@ public:
    PMTreeViewWidget( PMPart* pare, QWidget* parent );
    
    /** */
-   virtual QString viewType() const { return QString( "treeview" ); }
+   virtual QString viewType() const override { return QString( "treeview" ); }
    /** */
-   virtual QString description() const;
+   virtual QString description() const override;
 };
 
 /**
@@ -118,22 +118,22 @@ signals:
    void destroyed( PMTreeView* v );
    
 protected:
-   void mousePressEvent( QMouseEvent* e )__attribute__((optimize(0)));
-   void mouseMoveEvent( QMouseEvent* e );
+   void mousePressEvent( QMouseEvent* e ) override __attribute__((optimize(0)));
+   void mouseMoveEvent( QMouseEvent* e ) override;
    void itemSelected( PMTreeViewItem* item, bool selected );
    
    void selectionManager( QMouseEvent * e );
-   void mouseReleaseEvent( QMouseEvent* e );
+   void mouseReleaseEvent( QMouseEvent* e ) override;
    void moveMouseManager( QMouseEvent* e );
-   void dragMoveEvent( QDragMoveEvent *e );
-   void dragEnterEvent( QDragEnterEvent *e );
-   void dragLeaveEvent( QDragLeaveEvent* e );
-   void dropEvent( QDropEvent* e );
+   void dragMoveEvent( QDragMoveEvent *e ) override;
+   void dragEnterEvent( QDragEnterEvent *e ) override;
+   void dragLeaveEvent( QDragLeaveEvent* e ) override;
+   void dropEvent( QDropEvent* e ) override;
 
-   void focusOutEvent( QFocusEvent* e );
-   void focusInEvent( QFocusEvent* e );
+   void focusOutEvent( QFocusEvent* e ) override;
+   void focusInEvent( QFocusEvent* e ) override;
    
-   void keyPressEvent( QKeyEvent* e );
+   void keyPressEvent( QKeyEvent* e ) override;
 
 private:
    /**
@@ -180,10 +180,10 @@ class PMTreeViewFactory : public PMViewTypeFactory
 {
 public:
    PMTreeViewFactory() { }
-   virtual QString viewType() const { return QString( "treeview" ); }
-   virtual QString description() const;
-   virtual QString iconName() const { return QString( "pmtreeview" ); }
-   virtual PMViewBase* newInstance( QWidget* parent, PMPart* part ) const
+   virtual QString viewType() const override { return QString( "treeview" ); }
+   virtual QString description() const override;
+   virtual QString iconName() const override { return QString( "pmtreeview" ); }
+   virtual PMViewBase* newInstance( QWidget* parent, PMPart* part ) const override
    {
       return new PMTreeViewWidget( part, parent );
    }

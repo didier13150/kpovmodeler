@@ -54,7 +54,7 @@ public:
    static void restoreConfig();
 
 protected:
-   virtual void resizeEvent( QResizeEvent* ev );
+   virtual void resizeEvent( QResizeEvent* ev ) override;
 
 private:
    void displayMessages();
