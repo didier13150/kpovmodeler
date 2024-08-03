@@ -183,7 +183,7 @@ void PMShell::setupActions()
    m_pStatusbarAction = KStandardAction::showStatusbar( this, SLOT( slotShowStatusbar() ),
                                                    actionCollection() );
 
-   KStandardAction::saveOptions( this, SLOT( saveOptions() ), actionCollection() );
+   //KStandardAction::saveOptions( this, SLOT( saveOptions() ), actionCollection() );
 
    //KStandardAction::keyBindings( this, SLOT( slotConfigureKeys() ), actionCollection() );
    KStandardAction::configureToolbars( this, SLOT( slotConfigureToolbars() ), actionCollection() );
@@ -582,17 +582,17 @@ void PMShell::updateGUI()
    createGUI( m_pPart );
 }
 
-void PMShell::saveOptions()
-{
-   QSettings qset;
-   qset.setValue( "Appearance/ShowStatusbar", m_pStatusbarAction->isChecked() );
-   // eticre save recent file m_pRecent->saveEntries( "RecentFile" );
-
-   if( m_pPart )
-       m_pPart->saveConfig();
-
-   //config.sync();
-}
+// void PMShell::saveOptions()
+// {
+//    QSettings qset;
+//    qset.setValue( "Appearance/ShowStatusbar", m_pStatusbarAction->isChecked() );
+//    // eticre save recent file m_pRecent->saveEntries( "RecentFile" );
+//
+//    if( m_pPart )
+//        m_pPart->saveConfig();
+//
+//    //config.sync();
+// }
 
 void PMShell::restoreOptions()
 {
@@ -703,11 +703,11 @@ bool PMShell::overwriteURL( const QUrl& u )
          m.setText( "Overwrite file" );
          m.setInformativeText( "A file with this name already exists.\nDo you want to overwrite it?" );
          m.setStandardButtons( QMessageBox::Save | QMessageBox::Cancel );
-         if ( m.exec() == QMessageBox::Save )
-             return( true );
+         if ( m.exec() == QMessageBox::Cancel )
+             return( false );
       }
    }
-   return ( false );
+   return ( true );
 }
 
 void PMShell::slotSelectedLayout( QAction* action )

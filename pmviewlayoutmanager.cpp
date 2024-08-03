@@ -151,7 +151,7 @@ void PMViewLayoutEntry::saveData( QDomElement& e ) const
          break;
       default:
          qCritical(  ) << ( "Unknown dock position." )
-                           << endl;
+                           << Qt::endl;
          break;
    }
    s.setNum( m_columnWidth );
@@ -207,7 +207,7 @@ const QString PMViewLayoutEntry::viewTypeAsString()
          return f->description();
    }
 
-   qCritical(  ) << ( "Unknown view type." )<< endl;
+   qCritical(  ) << ( "Unknown view type." )<< Qt::endl;
    return ( "Unknown" );
 }
 
@@ -225,7 +225,7 @@ const QString PMViewLayoutEntry::dockPositionAsString()
          return ( "Floating" );
       default:
          qCritical(  ) << ( "Unknown dock position." )
-                           << endl;
+                           << Qt::endl;
          return ( "unknown" );
    }
 }
@@ -711,7 +711,7 @@ void PMViewLayoutManager::loadData()
    if( !file.open( QIODevice::ReadOnly ) )
    {
       qCritical(  ) << tr( "Could not open the view layouts file." )
-                        << endl;
+                        << Qt::endl;
       return;
    }
 
@@ -743,14 +743,14 @@ void PMViewLayoutManager::saveData()
    QString fileName = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1Char('/') + "kpovmodeler/viewlayouts.xml" ;
    if( fileName.isEmpty() )
    {
-      qCritical(  ) << tr( "View layouts not found." ) << endl;
+      qCritical(  ) << tr( "View layouts not found." ) << Qt::endl;
       return;
    }
    QFile file( fileName );
    if( !file.open( QIODevice::WriteOnly ) )
    {
       qCritical(  ) << tr( "Could not open the view layouts file." )
-                        << endl;
+                        << Qt::endl;
       return;
    }
    QDomDocument doc( "VIEWLAYOUTS" );

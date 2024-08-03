@@ -72,13 +72,13 @@ public:
       m_index[0] = 0;
       m_index[1] = 0;
    }
-   virtual int dimensions() const { return 2; }
-   virtual void setIndex( int dimension, int index )
+   virtual int dimensions() const override { return 2; }
+   virtual void setIndex( int dimension, int index ) override
    {
       if( dimension == 0 || dimension == 1 )
          m_index[dimension] = index;
    }
-   virtual int size( PMObject* object, int dimension ) const
+   virtual int size( PMObject* object, int dimension ) const override
    {
       PMPrism* prism = ( PMPrism* ) object;
       QList< QList<PMVector> > points = prism->points();
@@ -92,7 +92,7 @@ public:
       return 0;
    }
 protected:
-   virtual bool setProtected( PMObject* obj, const PMVariant& var )
+   virtual bool setProtected( PMObject* obj, const PMVariant& var ) override
    {
       PMPrism* p = ( PMPrism* ) obj;
       QList< QList<PMVector> > list = p->points();
@@ -124,18 +124,18 @@ protected:
       p->setPoints( list );
       return true;
    }
-   virtual PMVariant getProtected( const PMObject* obj )
+   virtual PMVariant getProtected( const PMObject* obj ) override
    {
       PMPrism* p = ( PMPrism* ) obj;
       QList< QList<PMVector> > list = p->points();
       if( m_index[0] >= list.count() )
       {
-         qCritical(  ) << "Range error in PMPrism::PointProperty::get" << endl;
+         qCritical(  ) << "Range error in PMPrism::PointProperty::get" << Qt::endl;
          return PMVariant();
       }
       if( m_index[1] >= list[m_index[0]].count() )
       {
-         qCritical(  ) << "Range error in PMPrism::PointProperty::get" << endl;
+         qCritical(  ) << "Range error in PMPrism::PointProperty::get" << Qt::endl;
          return PMVariant();
       }
 

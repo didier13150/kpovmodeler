@@ -62,17 +62,17 @@ public:
    {
       m_index = 0;
    }
-   virtual int dimensions() const { return 1; }
-   virtual void setIndex( int /*dimension*/, int index )
+   virtual int dimensions() const override { return 1; }
+   virtual void setIndex( int /*dimension*/, int index ) override
    {
       m_index = index;
    }
-   virtual int size( PMObject* object, int /*dimension*/ ) const
+   virtual int size( PMObject* object, int /*dimension*/ ) const override
    {
       return ( ( PMSurfaceOfRevolution* ) object )->numberOfPoints();
    }
 protected:
-   virtual bool setProtected( PMObject* obj, const PMVariant& var )
+   virtual bool setProtected( PMObject* obj, const PMVariant& var ) override
    {
       PMSurfaceOfRevolution* p = ( PMSurfaceOfRevolution* ) obj;
       QList<PMVector> list = p->points();
@@ -94,14 +94,14 @@ protected:
       p->setPoints( list );
       return true;
    }
-   virtual PMVariant getProtected( const PMObject* obj )
+   virtual PMVariant getProtected( const PMObject* obj ) override
    {
       PMSurfaceOfRevolution* p = ( PMSurfaceOfRevolution* ) obj;
       QList<PMVector> list = p->points();
 
       if( m_index >= list.count() )
       {
-         qCritical(  ) << "Range error in PMSurfaceOfRevolution::PointProperty::get" << endl;
+         qCritical(  ) << "Range error in PMSurfaceOfRevolution::PointProperty::get" << Qt::endl;
          return PMVariant();
       }
 

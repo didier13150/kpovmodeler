@@ -7011,6 +7011,7 @@ bool PMPovrayParser::parseGlobalPhotons( PMGlobalPhotons* gp )
                if ( parseToken( ',' ) && parseFloat( f ) )
                   gp->setMediaFactor( f );
             }
+            break;
          case JITTER_TOK:
             nextToken();
             if ( parseFloat( f ) )

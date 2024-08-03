@@ -34,15 +34,15 @@ PMPluginManager* PMPluginManager::s_pInstance = nullptr;
 using namespace KParts;
 
 // workaround for protected Plugin::pluginInfos
-class PMPluginWorkaround : public Plugin
-{
-public:
-   PMPluginWorkaround() : Plugin( nullptr ) { }
-   /*static QList<Plugin::PluginInfo> installedPlugins( const KComponentData &instance )
-   {
-      return pluginInfos( instance );
-   }*/
-};
+// class PMPluginWorkaround : public Plugin
+// {
+// public:
+//    PMPluginWorkaround() : Plugin( nullptr ) { }
+//    /*static QList<Plugin::PluginInfo> installedPlugins( const KComponentData &instance )
+//    {
+//       return pluginInfos( instance );
+//    }*/
+// };
 
 PMPluginManager::PMPluginManager()
 {

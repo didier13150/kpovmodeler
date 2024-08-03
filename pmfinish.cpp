@@ -704,6 +704,7 @@ void PMFinish::restoreMemento( PMMemento* s )
                break;
             case PMConserveEnergyID:
                setConserveEnergy( data->boolData() );
+               break;
             case PMPhongID:
                setPhong( data->doubleData() );
                break;

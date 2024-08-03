@@ -103,7 +103,7 @@ void PMRaw::readAttributes( const PMXMLHelper& h )
    QDomNode e = h.element().firstChild();
    if( e.isText() )
       m_code = e.toText().data();
-      Base::readAttributes( h );
+   Base::readAttributes( h );
 }
 
 PMDialogEditBase* PMRaw::editWidget( QWidget* parent ) const

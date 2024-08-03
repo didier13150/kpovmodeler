@@ -118,7 +118,7 @@ public slots:
    void slotNewDialogView();
    void slotNewLibraryBrowserView();
 
-   void saveOptions();
+   //void saveOptions();
    void restoreOptions();
 
    void setWindowTitle( const QString& caption = QString() );

@@ -344,7 +344,7 @@ bool PMLibraryEntryPreview::saveIfNeeded( bool forceSave )
       // ask if we must save the changes
       if( forceSave || QMessageBox::question( this, tr( "Warning" ) ,
                        tr( "The object has been modified and not saved.\nDo you wish to save?" ),
-                        QMessageBox::Yes | QMessageBox::No ) );
+                        QMessageBox::Yes | QMessageBox::No ) )
 
       {
          if( m_subLib )

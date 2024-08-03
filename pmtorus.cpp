@@ -136,6 +136,7 @@ void PMTorus::restoreMemento( PMMemento* s )
                break;
             case PMSturmID:
                setSturm( data->boolData() );
+               break;
             default:
                qCritical(  ) << "Wrong ID in PMTorus::restoreMemento\n";
                break;

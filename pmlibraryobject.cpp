@@ -34,9 +34,9 @@ PMLibraryObject::PMLibraryObject()
    m_preview = nullptr;
    m_objects = nullptr;
    m_path = nullptr;
-   m_name = QString::null;
-   m_description = QString::null;
-   m_keywords = QString::null;
+   m_name = QString();
+   m_description = QString();
+   m_keywords = QString();
 }
 
 PMLibraryObject::PMLibraryObject( QString url )

@@ -511,7 +511,7 @@ void PMTreeView::moveMouseManager( QMouseEvent *e )
               // d->setPixmap( "pmdrag" );
              }
 
-            Qt::DropAction result = d->start( Qt::CopyAction | Qt::MoveAction );
+            Qt::DropAction result = d->exec( Qt::CopyAction | Qt::MoveAction );
             if( result == Qt::MoveAction )
             {
                if( !targetDisplaysPart( d->target() ) )
@@ -704,6 +704,7 @@ void PMTreeView::keyPressEvent( QKeyEvent* e )
          case Qt::Key_Minus:
             current->setExpanded( false );
             accept = true;
+            break;
          case Qt::Key_Delete:
             deleteItem = true;
             accept = true;
