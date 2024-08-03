@@ -366,6 +366,7 @@ ecm_install_icons(
         22-apps-kpovmodeler.png
         32-apps-kpovmodeler.png
         48-apps-kpovmodeler.png
+        sc-apps-kpovmodeler.svgz
         16-mimetypes-kpovmodeler.png
         32-mimetypes-kpovmodeler.png
         48-mimetypes-kpovmodeler.png
